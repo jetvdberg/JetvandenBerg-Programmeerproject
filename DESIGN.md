@@ -1,9 +1,9 @@
 # Programmeerproject
 
-### Design Document 
+### Design Document 'Love Me Adopt Me'
 ###### Created by Jet van den Berg
 
-## Het ontwerp van de app:
+## Het ontwerp van de app Love Me Adopt Me:
 ![](doc/Design%20Document.jpg)
 
 ## Utility modules, classes en functions:
