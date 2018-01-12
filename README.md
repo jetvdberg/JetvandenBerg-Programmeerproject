@@ -5,7 +5,7 @@
 
 Deze app toont dieren uit een dierenasiel, die 'geliket' kunnen worden door de gebruiker. Deze 'gelikete' dieren komen in een 'like'-lijst te staan van deze gebruiker. Door op een dier te klikken, worden de details weergegeven. Op basis hiervan kan een gebruiker bepalen of hij dit dier wel of niet in zijn lijst zet. Deze lijst kan ook gedeeld worden met vrienden, die te zoeken zijn op hun e-mailadres, en waarmee gechat kan worden. Een gebruiker kan ook zelf een dier toevoegen aan zijn lijst. Zie de sketches hieronder voor de visualisatie van deze proposal.
 
-![](doc/Design Document.jpg)
+![](doc/Design%20Document.jpg)
 ![](doc/App-Proposal.jpg)
 
 ## Problem statement
