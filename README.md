@@ -32,3 +32,5 @@ Een oplossing op bovenstaand probleem is een app met een lijst van dieren die mo
 
 ## Hardest parts
 Het vinden van een API voor Nederlandse dierenasielen. Momenteel heb ik vooral Amerikaanse API’s gevonden. Ook welke API nou echt geschikt zal zijn, moet nog goed uitgezocht worden.
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/jetvdberg/Programmeerproject?branch=master)](https://bettercodehub.com/)
