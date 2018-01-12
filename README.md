@@ -3,8 +3,9 @@
 ### Project Proposal 'Love Me Adopt Me'
 ###### Created by Jet van den Berg
 
-Deze app toont dieren uit een dierenasiel, die 'geliket' kunnen worden door de gebruiker. Deze 'gelikete' dieren komen in een 'like'-lijst te staan van deze gebruiker. Door op een dier te klikken, worden de details weergegeven. Op basis hiervan kan een gebruiker bepalen of hij dit dier wel of niet in zijn lijst zet. Deze lijst kan ook gedeeld worden met vrienden, die te zoeken zijn op hun e-mailadres. Een gebruiker kan ook zelf een dier toevoegen aan zijn lijst. Zie de sketch voor de visualisatie van deze proposal.
+Deze app toont dieren uit een dierenasiel, die 'geliket' kunnen worden door de gebruiker. Deze 'gelikete' dieren komen in een 'like'-lijst te staan van deze gebruiker. Door op een dier te klikken, worden de details weergegeven. Op basis hiervan kan een gebruiker bepalen of hij dit dier wel of niet in zijn lijst zet. Deze lijst kan ook gedeeld worden met vrienden, die te zoeken zijn op hun e-mailadres, en waarmee gechat kan worden. Een gebruiker kan ook zelf een dier toevoegen aan zijn lijst. Zie de sketches hieronder voor de visualisatie van deze proposal.
 
+![](doc/Design Document.jpg)
 ![](doc/App-Proposal.jpg)
 
 ## Problem statement
@@ -13,7 +14,7 @@ Elke dag worden er nieuwe huisdieren in een dierenasiel geplaatst, terwijl het a
 
 ## Problem solution
 
-Een oplossing op bovenstaand probleem is een app met een lijst van dieren die momenteel in het dierenasiel zitten, die op een eenvoudige manier via de app 'geadopteerd' kunnen worden. Een populair middel om bepaalde items op te slaan in een app is door dit item te 'liken'. Deze app moet het adopteren van een huisdier uiteindelijk toegankelijker maken, en daarmee dan ook bekender onder gebruikers. Het 'liken' van dieren moet deze app toegankelijk maken.
+Een oplossing op bovenstaand probleem is een app met een lijst van dieren die momenteel in het dierenasiel zitten, die op een eenvoudige manier via de app 'geliket' kunnen worden, waardoor de 'gelikete' dieren in een favorietenlijst komen te staan. Een populair middel om bepaalde items op te slaan in een app is door dit item te 'liken'. Deze app moet het adopteren van een huisdier uiteindelijk toegankelijker maken, en daarmee dan ook bekender onder gebruikers.
 
 ## Data sources
 * Lost, found, adoptable pets: https://data.sonomacounty.ca.gov/Government/Animal-Shelter-Intake-and-Outcome/924a-vesw (API: https://data.kingcounty.gov/resource/murn-chih.json)
@@ -30,4 +31,4 @@ Een oplossing op bovenstaand probleem is een app met een lijst van dieren die mo
 * YES PET! - Adopt or Buy Dog & Cat Today: laat asielen in de buurt zien, met honden of katten die in het betreffende dierenasiel zitten.
 
 ## Hardest parts
-Het vinden van een API voor Nederlandse dierenasielen. Momenteel heb ik vooral Amerikaanse API’s gevonden.
+Het vinden van een API voor Nederlandse dierenasielen. Momenteel heb ik vooral Amerikaanse API’s gevonden. Ook welke API nou echt geschikt zal zijn, moet nog goed uitgezocht worden.
