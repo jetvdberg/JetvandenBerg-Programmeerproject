@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		60F4D39D2007836700D31BCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D39C2007836700D31BCF /* AppDelegate.swift */; };
-		60F4D39F2007836700D31BCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D39E2007836700D31BCF /* ViewController.swift */; };
 		60F4D3A22007836700D31BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A02007836700D31BCF /* Main.storyboard */; };
 		60F4D3A42007836700D31BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A32007836700D31BCF /* Assets.xcassets */; };
 		60F4D3A72007836700D31BCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A52007836700D31BCF /* LaunchScreen.storyboard */; };
+		60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */; };
+		60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */; };
+		60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */; };
+		60F4D3C12007A58F00D31BCF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C02007A58F00D31BCF /* LogInViewController.swift */; };
+		60F4D3C32007A7D700D31BCF /* DetailsLoveMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */; };
+		60F4D3C52007A91900D31BCF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C42007A91900D31BCF /* ChatViewController.swift */; };
+		60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */; };
+		60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */; };
+		60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CD2007C3D800D31BCF /* AnimalController.swift */; };
+		60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		60F4D3992007836700D31BCF /* Love Me Adopt Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Love Me Adopt Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F4D39C2007836700D31BCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		60F4D39E2007836700D31BCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60F4D3A12007836700D31BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60F4D3A32007836700D31BCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60F4D3A62007836700D31BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60F4D3A82007836700D31BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMeTableViewController.swift; sourceTree = "<group>"; };
+		60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLovesListTableViewController.swift; sourceTree = "<group>"; };
+		60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserTableViewController.swift; sourceTree = "<group>"; };
+		60F4D3C02007A58F00D31BCF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLoveMeViewController.swift; sourceTree = "<group>"; };
+		60F4D3C42007A91900D31BCF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewController.swift; sourceTree = "<group>"; };
+		60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterAnimal.swift; sourceTree = "<group>"; };
+		60F4D3CD2007C3D800D31BCF /* AnimalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalController.swift; sourceTree = "<group>"; };
+		60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +72,55 @@
 		60F4D39B2007836700D31BCF /* Love Me Adopt Me */ = {
 			isa = PBXGroup;
 			children = (
-				60F4D39C2007836700D31BCF /* AppDelegate.swift */,
-				60F4D39E2007836700D31BCF /* ViewController.swift */,
-				60F4D3A02007836700D31BCF /* Main.storyboard */,
-				60F4D3A32007836700D31BCF /* Assets.xcassets */,
-				60F4D3A52007836700D31BCF /* LaunchScreen.storyboard */,
 				60F4D3A82007836700D31BCF /* Info.plist */,
+				60F4D3CA2007BDD600D31BCF /* Models */,
+				60F4D3BC2007A47700D31BCF /* Controllers */,
+				60F4D3A32007836700D31BCF /* Assets.xcassets */,
+				60F4D3BE2007A4B900D31BCF /* Layouts */,
+				60F4D3BD2007A4AB00D31BCF /* Other */,
 			);
 			path = "Love Me Adopt Me";
+			sourceTree = "<group>";
+		};
+		60F4D3BC2007A47700D31BCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				60F4D3CD2007C3D800D31BCF /* AnimalController.swift */,
+				60F4D3C02007A58F00D31BCF /* LogInViewController.swift */,
+				60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */,
+				60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */,
+				60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */,
+				60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */,
+				60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */,
+				60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */,
+				60F4D3C42007A91900D31BCF /* ChatViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		60F4D3BD2007A4AB00D31BCF /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				60F4D39C2007836700D31BCF /* AppDelegate.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		60F4D3BE2007A4B900D31BCF /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				60F4D3A02007836700D31BCF /* Main.storyboard */,
+				60F4D3A52007836700D31BCF /* LaunchScreen.storyboard */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		60F4D3CA2007BDD600D31BCF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +195,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60F4D39F2007836700D31BCF /* ViewController.swift in Sources */,
+				60F4D3C12007A58F00D31BCF /* LogInViewController.swift in Sources */,
+				60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */,
+				60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */,
+				60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */,
+				60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */,
+				60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */,
+				60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */,
 				60F4D39D2007836700D31BCF /* AppDelegate.swift in Sources */,
+				60F4D3C32007A7D700D31BCF /* DetailsLoveMeViewController.swift in Sources */,
+				60F4D3C52007A91900D31BCF /* ChatViewController.swift in Sources */,
+				60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
