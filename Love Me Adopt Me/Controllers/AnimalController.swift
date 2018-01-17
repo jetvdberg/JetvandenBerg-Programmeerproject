@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class AnimalController {
     
@@ -16,14 +17,32 @@ class AnimalController {
     func fetchAnimals(completion: @escaping ([ShelterAnimal]?) -> Void) {
         let task = URLSession.shared.dataTask(with: animalURL) { (data, response, error) in
             
-            // Parsing data with JSONDecoder
-            let jsonDecoder = JSONDecoder()
-            if let data = data,
-                let shelterAnimals = try? jsonDecoder.decode(ShelterAnimals.self, from: data) {
-                completion(shelterAnimals.results)
-            } else {
-                print("Either no data was returned, or data was not properly decoded.")
-                completion(nil)
+            var json: [AnyObject]?
+            var animal = [ShelterAnimal]()
+            do {
+                json = try? JSONSerialization.jsonObject(with: data!) as! [AnyObject]
+                for object in json! {
+                    var temp = ShelterAnimal()
+                    let shelterAnimal = object as? [String: Any]
+                    
+                    temp.age = shelterAnimal!["age"] as? String
+                    temp.animal_breed = shelterAnimal!["animal_breed"] as? String
+                    temp.animal_color = shelterAnimal!["animal_color"] as? String
+                    temp.animal_gender = shelterAnimal!["animal_gender"] as? String
+                    temp.animal_id = shelterAnimal!["animal_id"] as? String
+                    temp.animal_name = shelterAnimal!["animal_name"] as? String
+                    temp.animal_type = shelterAnimal!["animal_type"] as? String
+                    temp.city = shelterAnimal!["city"] as? String
+                    temp.current_location = shelterAnimal!["current_location"] as? String
+                    temp.image = shelterAnimal!["image"] as? URL
+                    temp.link = shelterAnimal!["link"] as? URL
+                    
+                    animal.append(temp)
+                }
+            completion(animal)
+            print(animal)
+            } catch {
+                print(error)
             }
         }
         task.resume()

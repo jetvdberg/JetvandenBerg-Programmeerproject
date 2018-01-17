@@ -9,33 +9,23 @@
 import Foundation
 import UIKit
 
-struct ShelterAnimal: Codable {
+struct ShelterAnimal {
     
-    var age: String
-    var animal_breed: String
-    var animal_color: String
-    var animal_gender: String
-    var animal_id: String
-    var animal_type: String
-    var city: String
-    var current_location: String
-    var image: URL
-    var link: URL
+    var age: String?
+    var animal_breed: String?
+    var animal_color: String?
+    var animal_gender: String?
+    var animal_id: String?
+    var animal_name : String?
+    var animal_type: String?
+    var city: String?
+    var current_location: String?
+    var image: URL?
+    var link: URL?
     
-    enum CodingKeys: String, CodingKey {
-        case age
-        case animal_breed
-        case animal_color
-        case animal_gender
-        case animal_id
-        case animal_type
-        case city
-        case current_location
-        case image
-        case link
+    init() {
+        
     }
 }
 
-struct ShelterAnimals: Codable {
-    let results: [ShelterAnimal]
-}
+

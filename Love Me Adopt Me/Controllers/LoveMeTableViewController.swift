@@ -52,7 +52,11 @@ class LoveMeTableViewController: UITableViewController {
     // Configures actual data for in the cells
     func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let shelterAnimal = shelterAnimals[indexPath.row]
-        cell.textLabel?.text = shelterAnimal.age
+        if shelterAnimal.animal_name != nil {
+            cell.textLabel?.text = shelterAnimal.animal_name
+        } else {
+            cell.textLabel?.text = "nameless :("
+        }
     }
 
     /*

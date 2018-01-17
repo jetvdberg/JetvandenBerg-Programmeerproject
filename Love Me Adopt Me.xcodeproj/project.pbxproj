@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282C25219A08C7E1AA22A7D6 /* Pods_Love_Me_Adopt_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC53C1A41B4609F5E1FDF03 /* Pods_Love_Me_Adopt_Me.framework */; };
 		60F4D39D2007836700D31BCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D39C2007836700D31BCF /* AppDelegate.swift */; };
 		60F4D3A22007836700D31BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A02007836700D31BCF /* Main.storyboard */; };
 		60F4D3A42007836700D31BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A32007836700D31BCF /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */; };
 		60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CD2007C3D800D31BCF /* AnimalController.swift */; };
 		60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */; };
+		60F4D3D3200CDC7C00D31BCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3D2200CDC7B00D31BCF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,11 @@
 		60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterAnimal.swift; sourceTree = "<group>"; };
 		60F4D3CD2007C3D800D31BCF /* AnimalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalController.swift; sourceTree = "<group>"; };
 		60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoveViewController.swift; sourceTree = "<group>"; };
+		60F4D3D2200CDC7B00D31BCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		60F4D3D4200CE4A700D31BCF /* Love Me Adopt Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Love Me Adopt Me.entitlements"; sourceTree = "<group>"; };
+		6CC53C1A41B4609F5E1FDF03 /* Pods_Love_Me_Adopt_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Love_Me_Adopt_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBAE00C437673D4BC76BF28A /* Pods-Love Me Adopt Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love Me Adopt Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me.debug.xcconfig"; sourceTree = "<group>"; };
+		C8DBF46803D9F5C75A04F545 /* Pods-Love Me Adopt Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love Me Adopt Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +54,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282C25219A08C7E1AA22A7D6 /* Pods_Love_Me_Adopt_Me.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B1A714FDE63493474F2D47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CC53C1A41B4609F5E1FDF03 /* Pods_Love_Me_Adopt_Me.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		462F7A925428C1B2F02C35FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBAE00C437673D4BC76BF28A /* Pods-Love Me Adopt Me.debug.xcconfig */,
+				C8DBF46803D9F5C75A04F545 /* Pods-Love Me Adopt Me.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		60F4D3902007836400D31BCF = {
 			isa = PBXGroup;
 			children = (
 				60F4D39B2007836700D31BCF /* Love Me Adopt Me */,
 				60F4D39A2007836700D31BCF /* Products */,
+				462F7A925428C1B2F02C35FC /* Pods */,
+				02B1A714FDE63493474F2D47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +99,8 @@
 		60F4D39B2007836700D31BCF /* Love Me Adopt Me */ = {
 			isa = PBXGroup;
 			children = (
+				60F4D3D4200CE4A700D31BCF /* Love Me Adopt Me.entitlements */,
+				60F4D3D2200CDC7B00D31BCF /* GoogleService-Info.plist */,
 				60F4D3A82007836700D31BCF /* Info.plist */,
 				60F4D3CA2007BDD600D31BCF /* Models */,
 				60F4D3BC2007A47700D31BCF /* Controllers */,
@@ -130,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60F4D3AB2007836800D31BCF /* Build configuration list for PBXNativeTarget "Love Me Adopt Me" */;
 			buildPhases = (
+				89873C75F3D8406CA1C2A6F1 /* [CP] Check Pods Manifest.lock */,
 				60F4D3952007836700D31BCF /* Sources */,
 				60F4D3962007836700D31BCF /* Frameworks */,
 				60F4D3972007836700D31BCF /* Resources */,
+				EFB2EAB7C3B6C3CEFC2A3C76 /* [CP] Embed Pods Frameworks */,
+				A8E6A9918E0F9A00BC192125 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +188,11 @@
 					60F4D3982007836700D31BCF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -183,12 +220,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				60F4D3A72007836700D31BCF /* LaunchScreen.storyboard in Resources */,
+				60F4D3D3200CDC7C00D31BCF /* GoogleService-Info.plist in Resources */,
 				60F4D3A42007836700D31BCF /* Assets.xcassets in Resources */,
 				60F4D3A22007836700D31BCF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89873C75F3D8406CA1C2A6F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Love Me Adopt Me-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8E6A9918E0F9A00BC192125 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFB2EAB7C3B6C3CEFC2A3C76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60F4D3952007836700D31BCF /* Sources */ = {
@@ -340,8 +438,10 @@
 		};
 		60F4D3AC2007836800D31BCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBAE00C437673D4BC76BF28A /* Pods-Love Me Adopt Me.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Love Me Adopt Me/Love Me Adopt Me.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8NY8ETB7R;
 				INFOPLIST_FILE = "Love Me Adopt Me/Info.plist";
@@ -355,8 +455,10 @@
 		};
 		60F4D3AD2007836800D31BCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8DBF46803D9F5C75A04F545 /* Pods-Love Me Adopt Me.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Love Me Adopt Me/Love Me Adopt Me.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8NY8ETB7R;
 				INFOPLIST_FILE = "Love Me Adopt Me/Info.plist";

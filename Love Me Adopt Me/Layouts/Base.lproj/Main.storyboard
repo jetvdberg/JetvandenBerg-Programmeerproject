@@ -413,7 +413,7 @@
                                     <constraint firstAttribute="height" constant="38" id="Yu2-OV-1B0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Sign up">
+                                <state key="normal" title="Register">
                                     <color key="titleColor" red="0.3567236075129534" green="0.3567236075129534" blue="0.3567236075129534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -428,6 +428,9 @@
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerDidTouch:" destination="mHw-78-whp" eventType="touchUpInside" id="ose-LR-phR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU9-6M-LMu">
                                 <rect key="frame" x="70" y="410" width="110" height="38"/>
@@ -447,7 +450,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="1Pe-Zd-gQV" kind="show" id="Ilk-nv-Qjw"/>
+                                    <action selector="loginDidTouch:" destination="mHw-78-whp" eventType="touchUpInside" id="OIn-hR-dW7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adopt Me" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMS-yU-ZVz">
@@ -488,7 +491,9 @@
                         <viewLayoutGuide key="safeArea" id="3pE-Gk-hvu"/>
                     </view>
                     <connections>
-                        <segue destination="1Pe-Zd-gQV" kind="presentation" id="Xya-GX-5eo"/>
+                        <outlet property="textFieldLoginEmail" destination="nGi-jZ-DnI" id="5xf-Dj-PXT"/>
+                        <outlet property="textFieldLoginPassword" destination="pam-CF-gfG" id="S1Z-vJ-w5k"/>
+                        <segue destination="1Pe-Zd-gQV" kind="presentation" identifier="LoginToList" id="Xya-GX-5eo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sdd-Ek-n7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -501,6 +506,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1Pe-Zd-gQV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oLn-46-KQm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -516,7 +522,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xya-GX-5eo"/>
         <segue reference="zs6-2S-1f8"/>
         <segue reference="Ti6-6R-t6P"/>
         <segue reference="jxs-do-gZU"/>
