@@ -5,7 +5,7 @@
 
 ## Dag 1
 * Het design was de week ervoor gemaakt. De navigation flow was ook klaar. 
-* Het bleek dat de gekozen API https://data.kingcounty.gov/resource/murn-chih.json niet een makkelijke API was om te lezen door de JSONDecoder. Met hulp van een student-assistent is er wel een begin gemaakt. 
+* Het bleek dat de gekozen API (https://data.kingcounty.gov/resource/murn-chih.json) niet een makkelijke API was om te lezen door de JSONDecoder. Met hulp van een student-assistent is er wel een begin gemaakt. 
 * Ondertussen ook maar begonnen om Firebase op te zetten.
 
 ## Dag 2
