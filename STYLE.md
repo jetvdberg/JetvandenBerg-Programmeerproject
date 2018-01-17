@@ -3,7 +3,7 @@
 ### Styleguide
 ###### Created by Jet van den Berg
 
-1. De taal die gehanteerd wordt is de Engelse taal (US).
+1. De taal die gehanteerd wordt, is de Engelse taal (US).
 2. Gebruik tab voor indenteren, geen spaties.
 3. Class-, struct- en protocol-namen beginnen met hoofdletter.
 4. Functies, variabelen en constanten beginnen met kleine letter, maar maken wel gebruik van CamelCase.
