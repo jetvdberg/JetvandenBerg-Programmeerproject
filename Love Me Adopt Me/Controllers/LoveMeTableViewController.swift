@@ -104,4 +104,14 @@ class LoveMeTableViewController: UITableViewController {
     }
     */
 
+    // Segue for EventDetailSegue with details of certain event
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoveMeSegue" {
+            let detailsLoveMeViewController = segue.destination as! DetailsLoveMeViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            detailsLoveMeViewController.shelterAnimal = shelterAnimals[index]
+        }
+    }
+    
+    
 }

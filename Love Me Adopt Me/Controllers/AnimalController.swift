@@ -6,7 +6,6 @@
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
 
-import UIKit
 import Foundation
 
 class AnimalController {

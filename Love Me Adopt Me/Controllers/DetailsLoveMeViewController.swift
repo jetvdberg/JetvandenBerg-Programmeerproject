@@ -10,6 +10,8 @@ import UIKit
 
 class DetailsLoveMeViewController: UIViewController {
 
+    var shelterAnimal: ShelterAnimal!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

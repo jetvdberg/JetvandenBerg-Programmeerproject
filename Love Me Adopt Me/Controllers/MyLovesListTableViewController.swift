@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LovesListTableViewController: UITableViewController {
+    
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,13 @@ class LovesListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+//            self.user = User(authData: user)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

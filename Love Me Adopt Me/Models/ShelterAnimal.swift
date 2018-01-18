@@ -23,9 +23,7 @@ struct ShelterAnimal {
     var image: URL?
     var link: URL?
     
-    init() {
-        
-    }
+    init() { }
 }
 
 

@@ -23,6 +23,9 @@
 		60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CD2007C3D800D31BCF /* AnimalController.swift */; };
 		60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */; };
 		60F4D3D3200CDC7C00D31BCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3D2200CDC7B00D31BCF /* GoogleService-Info.plist */; };
+		60F4D3D6200F6AD300D31BCF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D5200F6AD200D31BCF /* User.swift */; };
+		60F4D3D820101ED000D31BCF /* LoveMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D720101ECF00D31BCF /* LoveMeViewController.swift */; };
+		60F4D3DA2010236100D31BCF /* AnimalTypeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3D92010236100D31BCF /* AnimalTypeRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLoveViewController.swift; sourceTree = "<group>"; };
 		60F4D3D2200CDC7B00D31BCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60F4D3D4200CE4A700D31BCF /* Love Me Adopt Me.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Love Me Adopt Me.entitlements"; sourceTree = "<group>"; };
+		60F4D3D5200F6AD200D31BCF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		60F4D3D720101ECF00D31BCF /* LoveMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMeViewController.swift; sourceTree = "<group>"; };
+		60F4D3D92010236100D31BCF /* AnimalTypeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTypeRow.swift; sourceTree = "<group>"; };
 		6CC53C1A41B4609F5E1FDF03 /* Pods_Love_Me_Adopt_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Love_Me_Adopt_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAE00C437673D4BC76BF28A /* Pods-Love Me Adopt Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love Me Adopt Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me.debug.xcconfig"; sourceTree = "<group>"; };
 		C8DBF46803D9F5C75A04F545 /* Pods-Love Me Adopt Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Love Me Adopt Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Love Me Adopt Me/Pods-Love Me Adopt Me.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 			children = (
 				60F4D3CD2007C3D800D31BCF /* AnimalController.swift */,
 				60F4D3C02007A58F00D31BCF /* LogInViewController.swift */,
+				60F4D3D720101ECF00D31BCF /* LoveMeViewController.swift */,
 				60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */,
 				60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */,
 				60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */,
@@ -147,7 +154,9 @@
 		60F4D3CA2007BDD600D31BCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				60F4D3D92010236100D31BCF /* AnimalTypeRow.swift */,
 				60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */,
+				60F4D3D5200F6AD200D31BCF /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,10 +306,13 @@
 				60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */,
 				60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */,
 				60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */,
+				60F4D3D820101ED000D31BCF /* LoveMeViewController.swift in Sources */,
 				60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */,
 				60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */,
 				60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */,
 				60F4D39D2007836700D31BCF /* AppDelegate.swift in Sources */,
+				60F4D3DA2010236100D31BCF /* AnimalTypeRow.swift in Sources */,
+				60F4D3D6200F6AD300D31BCF /* User.swift in Sources */,
 				60F4D3C32007A7D700D31BCF /* DetailsLoveMeViewController.swift in Sources */,
 				60F4D3C52007A91900D31BCF /* ChatViewController.swift in Sources */,
 				60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */,

@@ -92,4 +92,8 @@ class SocialTableViewController: UITableViewController {
     }
     */
 
+    @IBAction func logoutButtonPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
