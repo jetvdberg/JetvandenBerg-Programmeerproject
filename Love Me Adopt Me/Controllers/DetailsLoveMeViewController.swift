@@ -11,12 +11,38 @@ import UIKit
 class DetailsLoveMeViewController: UIViewController {
 
     var shelterAnimal: ShelterAnimal!
+    var delegate: AddToMyLovesDelegate?
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var memoLabel: UILabel!
+    @IBOutlet weak var addToLovesButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+        setupDelegate()
 
         // Do any additional setup after loading the view.
     }
+    
+    func updateUI() {
+        nameLabel.text = shelterAnimal.animal_name
+        typeLabel.text = shelterAnimal.animal_type
+        breedLabel.text = shelterAnimal.animal_breed
+        ageLabel.text = shelterAnimal.age
+        genderLabel.text = shelterAnimal.animal_gender
+        memoLabel.text = shelterAnimal.memo
+        addToLovesButton.layer.cornerRadius = 5.0
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,5 +59,19 @@ class DetailsLoveMeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setupDelegate() {
+        if let navController = tabBarController?.viewControllers?.first as? UINavigationController,
+            let myLovesListTableViewController = navController.viewControllers.last as? MyLovesListTableViewController {
+            delegate = myLovesListTableViewController
+        }
+    }
 
+    @IBAction func loveMeButtonTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.2) {
+            self.addToLovesButton.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            self.addToLovesButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+        delegate?.added(shelterAnimal: shelterAnimal)
+    }
 }

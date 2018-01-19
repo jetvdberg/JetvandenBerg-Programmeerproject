@@ -22,6 +22,7 @@ struct ShelterAnimal {
     var current_location: String?
     var image: URL?
     var link: URL?
+    var memo: String?
     
     init() { }
 }

@@ -15,7 +15,7 @@ class LoveMeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        animalController.fetchAnimals { (shelterAnimals) in
+        AnimalController.shared.fetchAnimals { (shelterAnimals) in
             if let shelterAnimals = shelterAnimals {
                 self.updateUI(with: shelterAnimals)
             }
@@ -54,8 +54,10 @@ class LoveMeTableViewController: UITableViewController {
         let shelterAnimal = shelterAnimals[indexPath.row]
         if shelterAnimal.animal_name != nil {
             cell.textLabel?.text = shelterAnimal.animal_name
+            cell.detailTextLabel?.text = shelterAnimal.animal_breed
         } else {
             cell.textLabel?.text = "nameless :("
+            cell.detailTextLabel?.text = shelterAnimal.animal_breed
         }
     }
 

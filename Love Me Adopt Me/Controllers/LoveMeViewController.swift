@@ -13,9 +13,7 @@ class LoveMeViewController: UIViewController {
     var animalTypes = ["Dogs", "Cats", "Birds", "Pigs"]
 }
 
-extension LoveMeViewController : UITableViewDelegate { }
-
-extension LoveMeViewController : UITableViewDataSource {
+extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return animalTypes[section]
@@ -30,8 +28,12 @@ extension LoveMeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell") as! AnimalTypeRow
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! subClass
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 178.0
     }
     
 

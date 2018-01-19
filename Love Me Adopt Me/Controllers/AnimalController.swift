@@ -9,6 +9,7 @@
 import Foundation
 
 class AnimalController {
+    static let shared = AnimalController()
     
     let animalURL = URL(string: "https://data.kingcounty.gov/resource/murn-chih.json")!
     

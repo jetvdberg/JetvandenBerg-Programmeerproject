@@ -9,12 +9,21 @@
 import UIKit
 import FirebaseAuth
 
-class LovesListTableViewController: UITableViewController {
+protocol AddToMyLovesDelegate {
+    func added(shelterAnimal: ShelterAnimal)
+}
+
+class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegate {
     
-    var user: User!
+    var shelterAnimals = [ShelterAnimal]()
+    
+//    let listToUsers = "ListToUsers"
+//    var myLovesList = [LovesModel]()
+//    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,83 +32,81 @@ class LovesListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         
-        Auth.auth().addStateDidChangeListener { auth, user in
-            guard let user = user else { return }
+//        Auth.auth().addStateDidChangeListener { auth, user in
+//            guard let user = user else { return }
 //            self.user = User(authData: user)
-        }
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        }
+//
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // Reloads view
+//    override func viewDidAppear(_ animated: Bool) {
+//        viewDidLoad()
+//    }
+    // MARK: - Table view data source
+    
+    // Returns number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("_______shelterAnimals.count")
+        print(shelterAnimals.count)
+        return shelterAnimals.count
     }
-
-    /*
+    
+    // Returns cell with given data
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyLoveListCell", for: indexPath)
+        configure(cell: cell, forItemAt: indexPath)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
+    
+    // Enables editing rows
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    // Enables deleting rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+//            dataRef.child(eventsList[indexPath.row].id!).removeValue()
+            shelterAnimals.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+//            viewDidLoad()
+            updateBadgeNumber()
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    // Configures cells with animal details
+    func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let shelterAnimal = shelterAnimals[indexPath.row]
+        if shelterAnimal.animal_name != nil {
+            cell.textLabel?.text = shelterAnimal.animal_name
+            cell.detailTextLabel?.text = shelterAnimal.animal_breed
+        } else {
+            cell.textLabel?.text = "nameless :("
+            cell.detailTextLabel?.text = shelterAnimal.animal_breed
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    // Counts number of favorites in list
+    func added(shelterAnimal: ShelterAnimal) {
+        shelterAnimals.append(shelterAnimal)
+        let count = shelterAnimals.count
+        print("_____count")
+        print(count)
+        let indexPath = IndexPath(row: count-1, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+//        viewDidLoad()
+        updateBadgeNumber()
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // Updates number representing favorites in list
+    func updateBadgeNumber() {
+        let badgeValue = shelterAnimals.count > 0 ? "\(shelterAnimals.count)" : nil
+        navigationController?.tabBarItem.badgeValue = badgeValue
+        print("_____badgeValue")
+        print(badgeValue)
     }
-    */
 
 }
