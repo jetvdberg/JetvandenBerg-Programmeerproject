@@ -19,3 +19,7 @@
 
 ## Dag 4
 * CollectionViewCellen staan in tableViewCellen, nu de juiste data van de API erin krijgen.
+* CollectionViewCellen aangepast qua layout
+
+## Dag 5
+* Loves-list wordt nu bijgewerkt met data, maar wordt helaas nog niet getoond in collectionViewCellen
