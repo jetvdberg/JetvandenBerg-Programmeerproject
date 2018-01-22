@@ -23,3 +23,6 @@
 
 ## Dag 5
 * Loves-list wordt nu bijgewerkt met data, maar wordt helaas nog niet getoond in collectionViewCellen
+
+## Dag 6
+* Data wordt nu weergegeven in collectionViewCellen, ook de images. Zit nog wel een bug in als er verder horizontaal wordt gescrolld in tableViewCell. Ook de segue naar detailsscherm is nog buggy.
