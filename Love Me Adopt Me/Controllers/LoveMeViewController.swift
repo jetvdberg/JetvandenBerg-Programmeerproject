@@ -11,6 +11,29 @@ import UIKit
 
 class LoveMeViewController: UIViewController {
     var animalTypes = ["Dogs", "Cats", "Birds", "Pigs"]
+    
+    let animalController = AnimalController()
+    var shelterAnimals = [ShelterAnimal]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        AnimalController.shared.fetchAnimals { (shelterAnimals) in
+            if let shelterAnimals = shelterAnimals {
+                self.updateUI(with: shelterAnimals)
+            }
+        }
+    }
+    
+    // Updates scene
+    func updateUI(with shelterAnimals: [ShelterAnimal]) {
+        DispatchQueue.main.async {
+            self.shelterAnimals = shelterAnimals
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
@@ -29,9 +52,11 @@ extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! subClass
+        cell.shelterAnimals = self.shelterAnimals
+        cell.collectionView.reloadData()
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 178.0
     }

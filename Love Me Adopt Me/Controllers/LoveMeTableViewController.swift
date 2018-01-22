@@ -54,11 +54,20 @@ class LoveMeTableViewController: UITableViewController {
         let shelterAnimal = shelterAnimals[indexPath.row]
         if shelterAnimal.animal_name != nil {
             cell.textLabel?.text = shelterAnimal.animal_name
-            cell.detailTextLabel?.text = shelterAnimal.animal_breed
         } else {
             cell.textLabel?.text = "nameless :("
-            cell.detailTextLabel?.text = shelterAnimal.animal_breed
         }
+        cell.detailTextLabel?.text = shelterAnimal.animal_breed
+//        AnimalController.shared.fetchImage(url: shelterAnimal.image) { (image) in
+//            guard let image = image else { return }
+//            DispatchQueue.main.async {
+//                if let currentIndexPath = self.tableView.indexPath(for: cell),
+//                    currentIndexPath != indexPath {
+//                    return
+//                }
+//                cell.imageView?.image = image
+//            }
+//        }
     }
 
     /*

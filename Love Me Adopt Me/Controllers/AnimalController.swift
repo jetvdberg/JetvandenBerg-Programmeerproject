@@ -6,6 +6,7 @@
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class AnimalController {
@@ -34,8 +35,12 @@ class AnimalController {
                     temp.animal_type = shelterAnimal!["animal_type"] as? String
                     temp.city = shelterAnimal!["city"] as? String
                     temp.current_location = shelterAnimal!["current_location"] as? String
-                    temp.image = shelterAnimal!["image"] as? URL
-                    temp.link = shelterAnimal!["link"] as? URL
+                    if let imageURL = shelterAnimal!["image"] as? String {
+                        temp.image = URL(string: imageURL)
+                    }
+                    if let linkURL = shelterAnimal!["link"] as? String {
+                        temp.link = URL(string: linkURL)
+                    }
                     
                     animal.append(temp)
                 }
@@ -47,4 +52,17 @@ class AnimalController {
         }
         task.resume()
     }
+    
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data,
+                let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
+            }
+        }
+        task.resume()
+    }
+
 }

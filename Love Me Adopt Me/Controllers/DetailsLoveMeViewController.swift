@@ -40,6 +40,13 @@ class DetailsLoveMeViewController: UIViewController {
         genderLabel.text = shelterAnimal.animal_gender
         memoLabel.text = shelterAnimal.memo
         addToLovesButton.layer.cornerRadius = 5.0
+//        AnimalController.shared.fetchImage(url: shelterAnimal.image)
+//        { (image) in
+//            guard let image = image else { return }
+//            DispatchQueue.main.async {
+//                self.imageView.image = image
+//            }
+//        }
     }
     
     
