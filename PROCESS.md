@@ -26,3 +26,7 @@
 
 ## Dag 6
 * Data wordt nu weergegeven in collectionViewCellen, ook de images. Zit nog wel een bug in als er verder horizontaal wordt gescrolld in tableViewCell. Ook de segue naar detailsscherm is nog buggy.
+
+## Dag 7
+* Horizontaal scrollen werkt nu optimaal. Ook images springen niet meer raar heen en weer in verschillende cellen.
+* Segue werkt nu ook (weer). Door de aanpassing van een tableView naar collectionView werkte dat niet meer. Navigationflow is nu dus weer zoals het hoort.
