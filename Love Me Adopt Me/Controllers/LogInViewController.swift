@@ -114,6 +114,7 @@ class LogInViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
 }
 
 extension LogInViewController: UITextFieldDelegate {
@@ -127,5 +128,6 @@ extension LogInViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }
 

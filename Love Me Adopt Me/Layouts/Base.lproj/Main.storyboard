@@ -167,7 +167,7 @@
                                                             <connections>
                                                                 <outlet property="animalImageView" destination="UcV-4q-WgM" id="bWq-gt-FvL"/>
                                                                 <outlet property="animalTypeLabel" destination="kPw-BA-K7R" id="h1m-WA-HI3"/>
-                                                                <segue destination="bd1-pG-bJT" kind="show" id="2h3-f6-gId"/>
+                                                                <segue destination="RW5-H1-a8e" kind="show" identifier="LoveMeSegue" id="5NN-NE-aBx"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -255,9 +255,6 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="RW5-H1-a8e" kind="show" identifier="LoveMeSegue" id="jxs-do-gZU"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -272,12 +269,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lez-9F-86c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221.5999999999999" y="393.55322338830587"/>
+            <point key="canvasLocation" x="2041" y="394"/>
         </scene>
         <!--Love Me!-->
         <scene sceneID="pVi-P0-xYo">
             <objects>
-                <viewController title="Love Me!" id="RW5-H1-a8e" customClass="DetailsLoveMeViewController" customModule="Love_Me_Adopt_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsLoveMeViewController" title="Love Me!" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RW5-H1-a8e" customClass="DetailsLoveMeViewController" customModule="Love_Me_Adopt_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zM4-Mp-0gK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k07-1U-tHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2040.8" y="393.55322338830587"/>
+            <point key="canvasLocation" x="1222" y="394"/>
         </scene>
         <!--Social-->
         <scene sceneID="8dL-mB-zMH">

@@ -33,20 +33,21 @@ class DetailsLoveMeViewController: UIViewController {
     }
     
     func updateUI() {
-        nameLabel.text = shelterAnimal.animal_name
+        nameLabel?.text = shelterAnimal.animal_name
         typeLabel.text = shelterAnimal.animal_type
         breedLabel.text = shelterAnimal.animal_breed
         ageLabel.text = shelterAnimal.age
         genderLabel.text = shelterAnimal.animal_gender
         memoLabel.text = shelterAnimal.memo
         addToLovesButton.layer.cornerRadius = 5.0
-//        AnimalController.shared.fetchImage(url: shelterAnimal.image)
-//        { (image) in
-//            guard let image = image else { return }
-//            DispatchQueue.main.async {
-//                self.imageView.image = image
-//            }
-//        }
+        
+        AnimalController.shared.fetchImage(url: shelterAnimal.image!)
+        { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
     }
     
     

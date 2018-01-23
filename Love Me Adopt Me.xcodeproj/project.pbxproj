@@ -125,7 +125,6 @@
 				60F4D3CD2007C3D800D31BCF /* AnimalController.swift */,
 				60F4D3C02007A58F00D31BCF /* LogInViewController.swift */,
 				60F4D3D720101ECF00D31BCF /* LoveMeViewController.swift */,
-				60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */,
 				60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */,
 				60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */,
 				60F4D3D02008552B00D31BCF /* AddLoveViewController.swift */,
@@ -140,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				60F4D39C2007836700D31BCF /* AppDelegate.swift */,
+				60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";

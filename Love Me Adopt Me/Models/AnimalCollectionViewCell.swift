@@ -13,10 +13,10 @@ class AnimalCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var animalImageView: UIImageView!
     @IBOutlet weak var animalTypeLabel: UILabel!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+
 
     let animalController = AnimalController()
-    var shelterAnimals = [ShelterAnimal]()
+    var shelterAnimal : ShelterAnimal?
     
 
     

@@ -12,8 +12,13 @@ import UIKit
 class LoveMeViewController: UIViewController {
     var animalTypes = ["Dogs", "Cats", "Birds", "Pigs"]
     
+//    let dogFilter = animalTypes.filter { ("D").contains($0.characters.first!) }
+//    print(dogFilter)
+//    print(animalTypes)
+    
     let animalController = AnimalController()
     var shelterAnimals = [ShelterAnimal]()
+    var shelterAnimal: ShelterAnimal!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,17 +65,16 @@ extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 178.0
     }
-    
 
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    // Segue for EventDetailSegue with details of certain event
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoveMeSegue" {
+            let detailsLoveMeViewController = segue.destination as! DetailsLoveMeViewController
+            let selectedCell = sender as! AnimalCollectionViewCell
+            detailsLoveMeViewController.shelterAnimal = selectedCell.shelterAnimal
+        }
     }
-    */
-
+    
 }

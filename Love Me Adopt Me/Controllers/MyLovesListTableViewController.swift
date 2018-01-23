@@ -93,8 +93,6 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     func added(shelterAnimal: ShelterAnimal) {
         shelterAnimals.append(shelterAnimal)
         let count = shelterAnimals.count
-        print("_____count")
-        print(count)
         let indexPath = IndexPath(row: count-1, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
 //        viewDidLoad()
@@ -105,8 +103,6 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     func updateBadgeNumber() {
         let badgeValue = shelterAnimals.count > 0 ? "\(shelterAnimals.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeValue
-        print("_____badgeValue")
-        print(badgeValue)
     }
 
 }
