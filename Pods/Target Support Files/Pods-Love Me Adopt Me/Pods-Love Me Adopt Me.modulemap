@@ -1,0 +1,6 @@
+framework module Pods_Love_Me_Adopt_Me {
+  umbrella header "Pods-Love Me Adopt Me-umbrella.h"
+
+  export *
+  module * { export * }
+}
