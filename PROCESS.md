@@ -3,6 +3,7 @@
 ### Process Book
 ###### Created by Jet van den Berg
 
+# Week 2
 ## Dag 1
 * Het design was de week ervoor gemaakt. De navigation flow was ook klaar. 
 * Het bleek dat de gekozen API (https://data.kingcounty.gov/resource/murn-chih.json) niet een makkelijke API was om te lezen door de JSONDecoder. Met hulp van een student-assistent is er wel een begin gemaakt. 
@@ -24,6 +25,7 @@
 ## Dag 5
 * Loves-list wordt nu bijgewerkt met data, maar wordt helaas nog niet getoond in collectionViewCellen
 
+# Week 3
 ## Dag 6
 * Data wordt nu weergegeven in collectionViewCellen, ook de images. Zit nog wel een bug in als er verder horizontaal wordt gescrolld in tableViewCell. Ook de segue naar detailsscherm is nog buggy.
 
