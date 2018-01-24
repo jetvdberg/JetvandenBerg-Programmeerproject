@@ -32,3 +32,6 @@
 ## Dag 7
 * Horizontaal scrollen werkt nu optimaal. Ook images springen niet meer raar heen en weer in verschillende cellen.
 * Segue werkt nu ook (weer). Door de aanpassing van een tableView naar collectionView werkte dat niet meer. Navigationflow is nu dus weer zoals het hoort.
+
+## Dag 8
+* Firebase is gekoppeld, er kunnen nu favorieten worden opgeslagen en teruggezet worden in de app. Nog niet alle data van een object wordt erin gezet, zoals de afbeelding, dat is iets voor volgende week, als er aan de details gewerkt moet worden.
