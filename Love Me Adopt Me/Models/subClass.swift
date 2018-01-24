@@ -26,6 +26,7 @@ extension subClass : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let shelterAnimal = shelterAnimals[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! AnimalCollectionViewCell
+        
         if shelterAnimal.animal_name != nil {
             cell.animalTypeLabel.text = shelterAnimal.animal_name
         } else {
@@ -33,6 +34,7 @@ extension subClass : UICollectionViewDataSource, UICollectionViewDelegate {
         }
         cell.animalImageView?.image = #imageLiteral(resourceName: "lab_puppy_hero") // TODO: ander plaatje doen later
         cell.shelterAnimal = shelterAnimal
+        
         let animalImage: URL? = shelterAnimal.image
         if let animalIMG = animalImage {
             

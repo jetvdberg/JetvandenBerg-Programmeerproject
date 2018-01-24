@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 protocol AddToMyLovesDelegate {
     func added(shelterAnimal: ShelterAnimal)
@@ -15,28 +16,54 @@ protocol AddToMyLovesDelegate {
 
 class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegate {
     
+    let listToUsers = "ListToUsers"
     var shelterAnimals = [ShelterAnimal]()
+    var myLovesList = [LovesModel]()
+    var user: User!
     
-//    let listToUsers = "ListToUsers"
-//    var myLovesList = [LovesModel]()
-//    var user: User!
+    var dataRef = Database.database().reference(withPath: "loves-of-current-user")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-//        Auth.auth().addStateDidChangeListener { auth, user in
-//            guard let user = user else { return }
-//            self.user = User(authData: user)
-//        }
-//
+        // Checks for existing data in Firebase
+        dataRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            self.myLovesList = []
+//            let animalName = snapshot.childSnapshot(forPath: "animalName").value
+            
+            for animals in snapshot.children.allObjects as! [DataSnapshot] {
+                let animalObject = animals.value as? [String: AnyObject]
+                let ID = animalObject?["id"]
+                let animal_age = animalObject?["animal_age"]
+                let animal_breed = animalObject?["animal_breed"]
+                let animal_color = animalObject?["animal_color"]
+                let animal_gender = animalObject?["animal_gender"]
+                let animal_id = animalObject?["animal_id"]
+                let animal_name = animalObject?["animal_name"]
+                let animal_type = animalObject?["animal_type"]
+                let city = animalObject?["city"]
+                let current_location = animalObject?["current_location"]
+//                let image = animalObject?["image"]
+//                let link = animalObject?["link"]
+                let memo = animalObject?["memo"]
+                
+                
+                let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color:
+                                        animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?,
+                                        animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?,
+                                        current_location: current_location as! String?, memo: memo as! String?)
+                
+                // Adds event to list
+                self.myLovesList.append(animal)
+                self.tableView.reloadData()
+            }
+            self.updateBadgeNumber()
+            
+        })
     }
 
     // MARK: - Table view data source
@@ -47,11 +74,14 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
 //    }
     // MARK: - Table view data source
     
+    // Reloads view
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
+    
     // Returns number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("_______shelterAnimals.count")
-        print(shelterAnimals.count)
-        return shelterAnimals.count
+        return myLovesList.count
     }
     
     // Returns cell with given data
@@ -69,39 +99,43 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     // Enables deleting rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            dataRef.child(eventsList[indexPath.row].id!).removeValue()
-            shelterAnimals.remove(at: indexPath.row)
+            dataRef.child(myLovesList[indexPath.row].id!).removeValue()
+            myLovesList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-//            viewDidLoad()
+            viewDidLoad()
             updateBadgeNumber()
         }
     }
     
     // Configures cells with animal details
     func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-        let shelterAnimal = shelterAnimals[indexPath.row]
+        let shelterAnimal = myLovesList[indexPath.row]
         if shelterAnimal.animal_name != nil {
             cell.textLabel?.text = shelterAnimal.animal_name
-            cell.detailTextLabel?.text = shelterAnimal.animal_breed
         } else {
             cell.textLabel?.text = "nameless :("
-            cell.detailTextLabel?.text = shelterAnimal.animal_breed
+            
         }
+        cell.detailTextLabel?.text = shelterAnimal.animal_breed
+        
+//        AnimalController.shared.fetchImage(url: shelterAnimal.image!)
+//        { (image) in
+//            guard let image = image else { return }
+//            DispatchQueue.main.async {
+//                cell.imageView?.image = image
+//            }
+//        }
     }
     
     // Counts number of favorites in list
     func added(shelterAnimal: ShelterAnimal) {
-        shelterAnimals.append(shelterAnimal)
-        let count = shelterAnimals.count
-        let indexPath = IndexPath(row: count-1, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-//        viewDidLoad()
+        viewDidLoad()
         updateBadgeNumber()
     }
     
     // Updates number representing favorites in list
     func updateBadgeNumber() {
-        let badgeValue = shelterAnimals.count > 0 ? "\(shelterAnimals.count)" : nil
+        let badgeValue = myLovesList.count > 0 ? "\(myLovesList.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeValue
     }
 

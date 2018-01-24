@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		282C25219A08C7E1AA22A7D6 /* Pods_Love_Me_Adopt_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC53C1A41B4609F5E1FDF03 /* Pods_Love_Me_Adopt_Me.framework */; };
+		60B61FEE2018AD39003A0922 /* LovesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B61FED2018AD39003A0922 /* LovesModel.swift */; };
 		60F4D39D2007836700D31BCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D39C2007836700D31BCF /* AppDelegate.swift */; };
 		60F4D3A22007836700D31BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A02007836700D31BCF /* Main.storyboard */; };
 		60F4D3A42007836700D31BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A32007836700D31BCF /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60B61FED2018AD39003A0922 /* LovesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LovesModel.swift; sourceTree = "<group>"; };
 		60F4D3992007836700D31BCF /* Love Me Adopt Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Love Me Adopt Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F4D39C2007836700D31BCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F4D3A12007836700D31BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				60F4D3DD2011045B00D31BCF /* AnimalCollectionViewCell.swift */,
 				60F4D3D92010236100D31BCF /* subClass.swift */,
 				60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */,
+				60B61FED2018AD39003A0922 /* LovesModel.swift */,
 				60F4D3D5200F6AD200D31BCF /* User.swift */,
 			);
 			path = Models;
@@ -310,6 +313,7 @@
 				60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */,
 				60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */,
 				60F4D3D820101ED000D31BCF /* LoveMeViewController.swift in Sources */,
+				60B61FEE2018AD39003A0922 /* LovesModel.swift in Sources */,
 				60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */,
 				60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */,
 				60F4D3D12008552B00D31BCF /* AddLoveViewController.swift in Sources */,

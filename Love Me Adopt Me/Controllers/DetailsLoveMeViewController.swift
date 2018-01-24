@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DetailsLoveMeViewController: UIViewController {
 
     var shelterAnimal: ShelterAnimal!
     var delegate: AddToMyLovesDelegate?
-    
+    var user: User!
+    var refMyLoves: DatabaseReference?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,18 +30,34 @@ class DetailsLoveMeViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
         setupDelegate()
+        refMyLoves = Database.database().reference()
 
         // Do any additional setup after loading the view.
     }
     
     func updateUI() {
-        nameLabel?.text = shelterAnimal.animal_name
-        typeLabel.text = shelterAnimal.animal_type
-        breedLabel.text = shelterAnimal.animal_breed
+        if shelterAnimal.animal_name != nil {
+            nameLabel.text = shelterAnimal.animal_name
+        } else {
+            nameLabel.text = "nameless :("
+        }
+        
+        if shelterAnimal.animal_type != nil {
+            typeLabel.text = shelterAnimal.animal_type
+        } else {
+            typeLabel.text = "no defined type :("
+        }
+        
+        if shelterAnimal.animal_breed != nil {
+            breedLabel.text = shelterAnimal.animal_breed
+        } else {
+            breedLabel.text = "no defined breed :("
+        }
+        
         ageLabel.text = shelterAnimal.age
         genderLabel.text = shelterAnimal.animal_gender
         memoLabel.text = shelterAnimal.memo
-        addToLovesButton.layer.cornerRadius = 5.0
+        addToLovesButton.layer.cornerRadius = 25.0
         
         AnimalController.shared.fetchImage(url: shelterAnimal.image!)
         { (image) in
@@ -48,9 +66,8 @@ class DetailsLoveMeViewController: UIViewController {
                 self.imageView.image = image
             }
         }
+        imageView.layer.cornerRadius = 25.0
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,5 +98,26 @@ class DetailsLoveMeViewController: UIViewController {
             self.addToLovesButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         delegate?.added(shelterAnimal: shelterAnimal)
+        addLove()
     }
+    
+    // Adds event as child of 'user' to Firebase with properties 'id' and 'eventName'
+    func addLove() {
+        let key = refMyLoves?.childByAutoId().key
+        
+        let events = ["id": key,
+                      "animal_age": ageLabel.text! as String,
+                      "animal_breed": breedLabel.text! as String,
+//                      "animal_color": Label.text! as String,
+                      "animal_gender": genderLabel.text! as String,
+//                      "animal_id": Label.text! as String,
+                      "animal_name": nameLabel.text! as String,
+                      "animal_type": typeLabel.text! as String,
+//                      "city": Label.text! as String,
+//                      "current_location": Label.text! as String,
+//                      "memo": memoLabel.text! as String
+        ]
+        refMyLoves?.child("loves-of-current-user").child(key!).setValue(events)
+    }
+    
 }
