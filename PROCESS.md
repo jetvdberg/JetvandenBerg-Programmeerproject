@@ -35,3 +35,11 @@
 
 ## Dag 8
 * Firebase is gekoppeld, er kunnen nu favorieten worden opgeslagen en teruggezet worden in de app. Nog niet alle data van een object wordt erin gezet, zoals de afbeelding, dat is iets voor volgende week, als er aan de details gewerkt moet worden.
+
+## Dag 9
+* Toch gelukt om afbeelding(URL) uit Firebase te laden en bij object te zetten.
+* Dieren worden nu ingedeeld op animal_type, zodat honden bij 'Dogs', katten bij 'Cats' etc. komen te staan.
+* Functionaliteiten gemaakt zoals kunnen bellen en mailen met dierenasiel, of website-link bekijken van specifiek dier (gegevens kloppen alleen nog niet)
+* Gebruikers kunnen nu gezocht worden op e-mailadres in lijst met alle gebruikers
+* Nieuwe API toegevoegd die willekeurige foto's van honden in moet laden, die als profielfoto moeten dienen van gebruikers, maar nog niet gelukt om die op goede manier in te laten.
+* Detailsscherm van specifieke gebruiker gemaakt.
