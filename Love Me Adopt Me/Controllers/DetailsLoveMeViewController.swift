@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class DetailsLoveMeViewController: UIViewController {
 
@@ -59,14 +60,18 @@ class DetailsLoveMeViewController: UIViewController {
         memoLabel.text = shelterAnimal.memo
         addToLovesButton.layer.cornerRadius = 25.0
         
-        AnimalController.shared.fetchImage(url: shelterAnimal.image!)
-        { (image) in
-            guard let image = image else { return }
-            DispatchQueue.main.async {
-                self.imageView.image = image
+        let animalImage = shelterAnimal.image
+        if let animalIMG = animalImage {
+        
+            AnimalController.shared.fetchImage(url: animalIMG)
+            { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
             }
+            imageView.layer.cornerRadius = 25.0
         }
-        imageView.layer.cornerRadius = 25.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,20 +108,27 @@ class DetailsLoveMeViewController: UIViewController {
     
     // Adds event as child of 'user' to Firebase with properties 'id' and 'eventName'
     func addLove() {
+//        let user = (Auth.auth().currentUser?.email)!
+//        let userName = String(user)
+//        print(userName)
         let key = refMyLoves?.childByAutoId().key
+        let image = String(describing: shelterAnimal?.image!)
+        let link = String(describing: shelterAnimal.link!)
         
-        let events = ["id": key,
-                      "animal_age": ageLabel.text! as String,
-                      "animal_breed": breedLabel.text! as String,
-//                      "animal_color": Label.text! as String,
-                      "animal_gender": genderLabel.text! as String,
-//                      "animal_id": Label.text! as String,
-                      "animal_name": nameLabel.text! as String,
-                      "animal_type": typeLabel.text! as String,
-//                      "city": Label.text! as String,
-//                      "current_location": Label.text! as String,
-//                      "memo": memoLabel.text! as String
-        ]
+        let events = ["id": key!,
+                      "animal_age": shelterAnimal.age as String?,
+                      "animal_breed": shelterAnimal.animal_breed as String?,
+                      "animal_color": shelterAnimal.animal_color as String?,
+                      "animal_gender": shelterAnimal.animal_gender as String?,
+                      "animal_id": shelterAnimal.animal_id as String?,
+                      "animal_name": shelterAnimal.animal_name as String?,
+                      "animal_type": shelterAnimal.animal_type as String?,
+                      "city": shelterAnimal.city as String?,
+                      "current_location": shelterAnimal.current_location as String?,
+                      "image": image,
+                      "link": link,
+                      "memo": shelterAnimal.memo as String?
+            ]
         refMyLoves?.child("loves-of-current-user").child(key!).setValue(events)
     }
     

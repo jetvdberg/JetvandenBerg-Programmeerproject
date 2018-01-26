@@ -8,17 +8,19 @@
 
 
 import UIKit
+import Foundation
 
 class LoveMeViewController: UIViewController {
-    var animalTypes = ["Dogs", "Cats", "Birds", "Pigs"]
-    
-//    let dogFilter = animalTypes.filter { ("D").contains($0.characters.first!) }
-//    print(dogFilter)
-//    print(animalTypes)
-    
+    var animalTypes = ["Dogs", "Cats", "Birds", "Remaining Animal Types"]
+
     let animalController = AnimalController()
     var shelterAnimals = [ShelterAnimal]()
     var shelterAnimal: ShelterAnimal!
+    
+    var shelterDogs = [ShelterAnimal]()
+    var shelterCats = [ShelterAnimal]()
+    var shelterBirds = [ShelterAnimal]()
+    var remaining = [ShelterAnimal]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,15 +29,37 @@ class LoveMeViewController: UIViewController {
         AnimalController.shared.fetchAnimals { (shelterAnimals) in
             if let shelterAnimals = shelterAnimals {
                 self.updateUI(with: shelterAnimals)
+                self.filterAnimals(with: shelterAnimals)
             }
         }
     }
     
     // Updates scene
-    func updateUI(with shelterAnimals: [ShelterAnimal]) {
+    func updateUI(with shelterDogs: [ShelterAnimal]) {
         DispatchQueue.main.async {
-            self.shelterAnimals = shelterAnimals
+            self.shelterAnimals = shelterDogs
             self.tableView.reloadData()
+        }
+    }
+    
+    func filterAnimals(with shelterAnimals: [ShelterAnimal]) {
+        shelterAnimals.forEach { ShelterAnimal in
+            
+            let animalType: String? = ShelterAnimal.animal_type
+            if let someAnimalType = animalType {
+                switch someAnimalType {
+                case "Dog":
+                    shelterDogs.append(ShelterAnimal)
+                case "Cat":
+                    shelterCats.append(ShelterAnimal)
+                case "Bird":
+                    shelterBirds.append(ShelterAnimal)
+                default:
+                    remaining.append(ShelterAnimal)
+                }
+            } else {
+                return
+            }
         }
     }
     
@@ -57,8 +81,25 @@ extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! subClass
-        cell.shelterAnimals = self.shelterAnimals
-        cell.collectionView.reloadData()
+        switch indexPath {
+        case [0,0]:
+            cell.shelterAnimals = self.shelterDogs
+            cell.collectionView.reloadData()
+            print(shelterDogs.count)
+        case [1,0]:
+            cell.shelterAnimals = self.shelterCats
+            cell.collectionView.reloadData()
+            print(shelterCats.count)
+        case [2,0]:
+            cell.shelterAnimals = self.shelterBirds
+            cell.collectionView.reloadData()
+            print(shelterBirds.count)
+        default:
+            cell.shelterAnimals = self.remaining
+            cell.collectionView.reloadData()
+            print(remaining.count)
+        }
+        
         return cell
     }
 

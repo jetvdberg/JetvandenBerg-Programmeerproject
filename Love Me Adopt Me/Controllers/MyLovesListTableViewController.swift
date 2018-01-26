@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -22,6 +23,7 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     var user: User!
     
     var dataRef = Database.database().reference(withPath: "loves-of-current-user")
+    let usersRef = Database.database().reference(withPath: "online-users")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,15 +49,12 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
                 let animal_type = animalObject?["animal_type"]
                 let city = animalObject?["city"]
                 let current_location = animalObject?["current_location"]
-//                let image = animalObject?["image"]
-//                let link = animalObject?["link"]
+                let image = animalObject?["image"]
+                let link = animalObject?["link"]
                 let memo = animalObject?["memo"]
                 
                 
-                let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color:
-                                        animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?,
-                                        animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?,
-                                        current_location: current_location as! String?, memo: memo as! String?)
+                let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color: animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?, animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?, current_location: current_location as! String?, image: image as! String?, link: link as! String?, memo: memo as! String?)
                 
                 // Adds event to list
                 self.myLovesList.append(animal)
@@ -64,6 +63,16 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
             self.updateBadgeNumber()
             
         })
+        
+        user = User(uid: "testId", email: "person@test.com")
+        
+        // Authorizes users, checks if they are online/offline
+        Auth.auth().addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+            let currentUserRef = self.usersRef.child(self.user.uid)
+            currentUserRef.setValue(self.user.email)
+            currentUserRef.onDisconnectRemoveValue()
+        }
     }
 
     // MARK: - Table view data source
@@ -118,13 +127,14 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
         }
         cell.detailTextLabel?.text = shelterAnimal.animal_breed
         
-//        AnimalController.shared.fetchImage(url: shelterAnimal.image!)
-//        { (image) in
-//            guard let image = image else { return }
-//            DispatchQueue.main.async {
-//                cell.imageView?.image = image
-//            }
-//        }
+        let imageURL = URL(string: shelterAnimal.image!)
+        AnimalController.shared.fetchImage(url: imageURL!)
+        { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                cell.imageView?.image = image
+            }
+        }
     }
     
     // Counts number of favorites in list
@@ -137,6 +147,17 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     func updateBadgeNumber() {
         let badgeValue = myLovesList.count > 0 ? "\(myLovesList.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeValue
+    }
+    
+    // MARK: - Navigation
+    
+    // Segue for EventDetailSegue with details of certain event
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LovesSegue" {
+            let contactShelterViewController = segue.destination as! ContactShelterViewController
+//            let index = tableView.indexPathForSelectedRow!.row
+//            contactShelterViewController.myLovesList = myLovesList[index]
+        }
     }
 
 }

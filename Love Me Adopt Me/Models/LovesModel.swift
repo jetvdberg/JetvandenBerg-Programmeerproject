@@ -6,6 +6,9 @@
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
 
+import UIKit
+import Foundation
+
 // Class for reading and writing data to Firebase
 class LovesModel {
     
@@ -20,14 +23,14 @@ class LovesModel {
     var animal_type: String?
     var city: String?
     var current_location: String?
-//    var image: URL?
-//    var link: URL?
+    var image: String?
+    var link: String?
     var memo: String?
     
 //    var addedByUser: String?
     
     // Initialize properties
-    init(id: String?, animal_age: String?, animal_breed: String?, animal_color: String?, animal_gender: String?, animal_id: String?, animal_name: String?, animal_type: String?, city: String?, current_location: String?, memo: String?) {
+    init(id: String?, animal_age: String?, animal_breed: String?, animal_color: String?, animal_gender: String?, animal_id: String?, animal_name: String?, animal_type: String?, city: String?, current_location: String?, image: String?, link: String?, memo: String?) {
         self.id = id
         self.animal_age = animal_age
         self.animal_breed = animal_breed
@@ -38,8 +41,8 @@ class LovesModel {
         self.animal_type = animal_type
         self.city = city
         self.current_location = current_location
-//        self.image = image
-//        self.link = link
+        self.image = image
+        self.link = link
         self.memo = memo
         
 //        self.addedByUser = addedByUser
