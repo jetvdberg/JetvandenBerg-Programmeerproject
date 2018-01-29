@@ -21,16 +21,17 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     var shelterAnimals = [ShelterAnimal]()
     var myLovesList = [LovesModel]()
     var user: User!
+    let userID = (Auth.auth().currentUser?.uid)!
     
-    var dataRef = Database.database().reference(withPath: "loves-of-current-user")
-    let usersRef = Database.database().reference(withPath: "online-users")
+    var dataRef = Database.database().reference()
+    let usersRef = Database.database().reference(withPath: "all-users")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Checks for existing data in Firebase
-        dataRef.observeSingleEvent(of: .value, with: { snapshot in
+        dataRef.child("lists-of-users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
             
             if !snapshot.exists() { return }
             
@@ -63,16 +64,6 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
             self.updateBadgeNumber()
             
         })
-        
-        user = User(uid: "testId", email: "person@test.com")
-        
-        // Authorizes users, checks if they are online/offline
-        Auth.auth().addStateDidChangeListener { auth, user in
-            guard let user = user else { return }
-            let currentUserRef = self.usersRef.child(self.user.uid)
-            currentUserRef.setValue(self.user.email)
-            currentUserRef.onDisconnectRemoveValue()
-        }
     }
 
     // MARK: - Table view data source
@@ -108,7 +99,7 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     // Enables deleting rows
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            dataRef.child(myLovesList[indexPath.row].id!).removeValue()
+            dataRef.child("lists-of-users").child(userID).child(myLovesList[indexPath.row].animal_id!).removeValue()
             myLovesList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             viewDidLoad()

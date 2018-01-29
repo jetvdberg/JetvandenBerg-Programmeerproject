@@ -15,7 +15,7 @@ class DetailsLoveMeViewController: UIViewController {
     var shelterAnimal: ShelterAnimal!
     var delegate: AddToMyLovesDelegate?
     var user: User!
-    var refMyLoves: DatabaseReference?
+    var refMyLoves: DatabaseReference!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -31,7 +31,6 @@ class DetailsLoveMeViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
         setupDelegate()
-        refMyLoves = Database.database().reference()
 
         // Do any additional setup after loading the view.
     }
@@ -108,12 +107,14 @@ class DetailsLoveMeViewController: UIViewController {
     
     // Adds event as child of 'user' to Firebase with properties 'id' and 'eventName'
     func addLove() {
-//        let user = (Auth.auth().currentUser?.email)!
-//        let userName = String(user)
-//        print(userName)
+        let userID = (Auth.auth().currentUser?.uid)!
+//        let userEmailFirebase = userEmail.makeFirebaseString()
+
+        refMyLoves = Database.database().reference()
         let key = refMyLoves?.childByAutoId().key
-        let image = String(describing: shelterAnimal?.image!)
+        let image = String(describing: shelterAnimal.image!)
         let link = String(describing: shelterAnimal.link!)
+        let animal_id = shelterAnimal.animal_id as String?
         
         let events = ["id": key!,
                       "animal_age": shelterAnimal.age as String?,
@@ -129,7 +130,22 @@ class DetailsLoveMeViewController: UIViewController {
                       "link": link,
                       "memo": shelterAnimal.memo as String?
             ]
-        refMyLoves?.child("loves-of-current-user").child(key!).setValue(events)
+        
+        refMyLoves.child("lists-of-users").child(userID).child(animal_id!).setValue(events)
     }
     
 }
+
+//extension String {
+//    func makeFirebaseString() -> String {
+//        let characterToReplace = [".","#","$","[","]"]
+//        var finalString = self
+//
+//        for character in characterToReplace{
+//            finalString = finalString.replacingOccurrences(of: character, with: "")
+//        }
+//
+//        return finalString
+//    }
+//}
+

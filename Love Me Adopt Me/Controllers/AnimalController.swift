@@ -13,7 +13,6 @@ class AnimalController {
     static let shared = AnimalController()
     
     let animalURL = URL(string: "https://data.kingcounty.gov/resource/murn-chih.json")!
-    let dogURL = URL(string: "https://api.thedogapi.co.uk/v2/dog.php")
     
     // Get data from API via URL, with filtering "results" due to JSONDecoder
     func fetchAnimals(completion: @escaping ([ShelterAnimal]?) -> Void) {
@@ -61,24 +60,6 @@ class AnimalController {
                 let image = UIImage(data: data) {
                 completion(image)
             } else {
-                completion(nil)
-            }
-        }
-        task.resume()
-    }
-    
-    func fetchDogs(completion: @escaping ([Dog]?) -> Void) {
-        let task = URLSession.shared.dataTask(with: dogURL!) { (data, response, error) in
-            
-            // Parsing data with JSONDecoder
-            let jsonDecoder = JSONDecoder()
-            if let data = data,
-                let dogs = try? jsonDecoder.decode(Dogs.self, from: data) {
-                completion(dogs.results)
-                print("Komt het aan?")
-                print([Dog]())
-            } else {
-                print("Either no data was returned, or data was not properly decoded.")
                 completion(nil)
             }
         }

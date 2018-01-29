@@ -11,6 +11,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class LogInViewController: UIViewController {
 
@@ -89,7 +90,7 @@ class LogInViewController: UIViewController {
                 Auth.auth().createUser(withEmail: emailField.text!,
                                        password: passwordField.text!) { user, error in
                     if error == nil {
-                        
+                        self.storeUserData(userId: (user?.uid)!)
                         Auth.auth().signIn(withEmail: self.textFieldLoginEmail.text!,
                                            password: self.textFieldLoginPassword.text!)
                     }
@@ -113,6 +114,14 @@ class LogInViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    // creates path in database with unique userid and email
+    func storeUserData(userId: String) {
+        Database.database().reference().child("all-users").child(userId).setValue([
+            "email": Auth.auth().currentUser?.email,
+            "uid": Auth.auth().currentUser?.uid
+            ])
     }
     
 }

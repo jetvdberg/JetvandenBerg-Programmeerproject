@@ -15,9 +15,10 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
     
     // Properties
     
-    var currentUsers: [String] = []
-    var filteredUsers = [String]()
-    let usersRef = Database.database().reference(withPath: "online-users")
+    var currentUsers = [User]()
+    var filteredUsers = [User]()
+    let usersRef = Database.database().reference()
+//    var users = [User]()
     var isSearching = false
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -26,29 +27,46 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.done
+//        searchBar.returnKeyType = .done
+        searchBar.autocapitalizationType = .none
+        searchBar.keyboardType = .emailAddress
         
-        // Checks if a user is online, adds user to Firebase
-        usersRef.observe(.childAdded, with: { snap in
-            guard let email = snap.value as? String else { return }
-            self.currentUsers.append(email)
-            let row = self.currentUsers.count - 1
-            let indexPath = IndexPath(row: row, section: 0)
-            self.tableView.insertRows(at: [indexPath], with: .top)
-        })
+        getUsers()
+
         
-        // Checks if a user is offline, removes user from Firebase
-        usersRef.observe(.childRemoved, with: { snap in
-            guard let emailToFind = snap.value as? String else { return }
-            for (index, email) in self.currentUsers.enumerated() {
-                if email == emailToFind {
-                    let indexPath = IndexPath(row: index, section: 0)
-                    self.currentUsers.remove(at: index)
-                    self.tableView.deleteRows(at: [indexPath], with: .fade)
-                }
+//        // Checks if a user is offline, removes user from Firebase
+//        usersRef.observe(.childRemoved, with: { snap in
+//            guard let emailToFind = snap.value as? String else { return }
+//            for (index, email) in self.currentUsers.enumerated() {
+//                if email == emailToFind {
+//                    let indexPath = IndexPath(row: index, section: 0)
+//                    self.currentUsers.remove(at: index)
+//                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+//                }
+//            }
+//        })
+    }
+    
+    func getUsers() {
+        usersRef.child("all-users").observeSingleEvent(of: .value, with: { snapshot in
+            if !snapshot.exists() { return }
+            self.currentUsers = []
+            for user in snapshot.children.allObjects as! [DataSnapshot] {
+                let userObject = user.value as? [String: AnyObject]
+                let email = userObject?["email"]
+                let uid = userObject?["uid"]
+                let user = User(uid: uid as! String, email: email as! String)
+                
+                // Adds event to list
+                self.currentUsers.append(user)
+                let row = self.currentUsers.count - 1
+                let indexPath = IndexPath(row: row, section: 0)
+                self.tableView.insertRows(at: [indexPath], with: .top)
+                self.tableView.reloadData()
             }
         })
     }
+    
     
     // UITableView Delegate methods
     // Returns amount of online users
@@ -67,9 +85,9 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
         let onlineUserEmail: String!
         
         if isSearching {
-            onlineUserEmail = filteredUsers[indexPath.row]
+            onlineUserEmail = filteredUsers[indexPath.row].email
         } else {
-            onlineUserEmail = currentUsers[indexPath.row]
+            onlineUserEmail = currentUsers[indexPath.row].email
         }
         
          cell.textLabel?.text = onlineUserEmail
@@ -84,7 +102,7 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
         } else {
             isSearching = true
-            filteredUsers = currentUsers.filter({$0.localizedCaseInsensitiveContains(searchBar.text!)})
+            filteredUsers = currentUsers.filter({$0.email.localizedCaseInsensitiveContains(searchBar.text!)})
             tableView.reloadData()
         }
     }
@@ -92,5 +110,13 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
     @IBAction func logoutButtonPressed(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "UserSegue" {
+//            let detailsUserTableViewController = segue.destination as! DetailsUsersTableViewController
+//            let index = tableView.indexPathForSelectedRow!.row
+//            detailsUserTableViewController.user = currentUsers[index]
+//        }
+//    }
     
 }
