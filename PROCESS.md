@@ -48,3 +48,13 @@
 ## Dag 11
 * Lijst van gebruiker wordt nu op eigen account opgeslagen in Firebase.
 * Gebruikers worden in aparte lijst in Firebase opgeslagen, en worden weergeven in Social, hun lijst wordt nog niet getoond in detailsView.
+* Besloten dat een chat-functie niet meer haalbaar is, en dus geschrapt.
+
+## Dag 12
+* currentUser wordt niet in lijst in Social weergegeven, dus alleen andere gebruikers.
+* Loves-lijst van een specifieke gebruiker is te bekijken.
+* Remaining animals (vierde row Love Me!) uit app gehaald, omdat deze vrijwel geen data bevatten. 
+* Gebruiker kan alleen registeren als beide tekstvelden ingevuld zijn. 
+* Gebruiker kan eigen e-mail als 'accountnaam' zien.
+* Tab bar icons gemaakt.
+* Bezig met 'laatst gezocht' maken, dit komt nu wel in Firebase te staan, moet er alleen nog uitgelezen worden.
