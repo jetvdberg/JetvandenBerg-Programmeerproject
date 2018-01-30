@@ -7,26 +7,60 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class DetailsUsersTableViewController: UITableViewController {
     
+    var shelterAnimals = [ShelterAnimal]()
+    var myLovesList = [LovesModel]()
     var user: User!
     
-//    @IBOutlet weak var userEmailLabel: UILabel!
+    var dataRef = Database.database().reference()
+    
+    @IBOutlet weak var userEmailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Checks for existing data in Firebase
+        dataRef.child("lists-of-users").child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            self.myLovesList = []
+            //            let animalName = snapshot.childSnapshot(forPath: "animalName").value
+            
+            for animals in snapshot.children.allObjects as! [DataSnapshot] {
+                let animalObject = animals.value as? [String: AnyObject]
+                let ID = animalObject?["id"]
+                let animal_age = animalObject?["animal_age"]
+                let animal_breed = animalObject?["animal_breed"]
+                let animal_color = animalObject?["animal_color"]
+                let animal_gender = animalObject?["animal_gender"]
+                let animal_id = animalObject?["animal_id"]
+                let animal_name = animalObject?["animal_name"]
+                let animal_type = animalObject?["animal_type"]
+                let city = animalObject?["city"]
+                let current_location = animalObject?["current_location"]
+                let image = animalObject?["image"]
+                let link = animalObject?["link"]
+                let memo = animalObject?["memo"]
+                
+                
+                let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color: animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?, animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?, current_location: current_location as! String?, image: image as! String?, link: link as! String?, memo: memo as! String?)
+                
+                // Adds event to list
+                self.myLovesList.append(animal)
+                self.tableView.reloadData()
+            }
+        })
     }
     
     func updateUI() {
-//        userEmailLabel.text = user.email
+        userEmailLabel.text = user.email
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,45 +70,36 @@ class DetailsUsersTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return myLovesList.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath)
+        configure(cell: cell, forItemAt: indexPath)
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // Configures cells with animal details
+    func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let shelterAnimal = myLovesList[indexPath.row]
+        if shelterAnimal.animal_name != nil {
+            cell.textLabel?.text = shelterAnimal.animal_name
+        } else {
+            cell.textLabel?.text = "nameless :("
+            
+        }
+        cell.detailTextLabel?.text = shelterAnimal.animal_breed
+        
+        let imageURL = URL(string: shelterAnimal.image!)
+        AnimalController.shared.fetchImage(url: imageURL!)
+        { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                cell.imageView?.image = image
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
     /*
     // Override to support rearranging the table view.

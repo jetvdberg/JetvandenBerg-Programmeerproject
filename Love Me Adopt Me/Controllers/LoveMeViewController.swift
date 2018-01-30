@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 
 class LoveMeViewController: UIViewController {
-    var animalTypes = ["Dogs", "Cats", "Birds", "Remaining Animal Types"]
+    var animalTypes = ["Dogs", "Cats", "Birds"]
 
     let animalController = AnimalController()
     var shelterAnimals = [ShelterAnimal]()
@@ -95,7 +95,6 @@ extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.reloadData()
             print(shelterBirds.count)
         default:
-            cell.shelterAnimals = self.remaining
             cell.collectionView.reloadData()
             print(remaining.count)
         }

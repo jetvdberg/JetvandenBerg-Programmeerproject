@@ -17,17 +17,20 @@ protocol AddToMyLovesDelegate {
 
 class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegate {
     
-    let listToUsers = "ListToUsers"
     var shelterAnimals = [ShelterAnimal]()
     var myLovesList = [LovesModel]()
     var user: User!
     let userID = (Auth.auth().currentUser?.uid)!
+    let userEmail = (Auth.auth().currentUser?.email)!
     
     var dataRef = Database.database().reference()
-    let usersRef = Database.database().reference(withPath: "all-users")
+    
+    @IBOutlet weak var currentUserLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         navigationItem.leftBarButtonItem = editButtonItem
         
         // Checks for existing data in Firebase
@@ -40,7 +43,7 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
             
             for animals in snapshot.children.allObjects as! [DataSnapshot] {
                 let animalObject = animals.value as? [String: AnyObject]
-                let ID = animalObject?["id"]
+                let ID = animalObject?["id"] as! String // TODO
                 let animal_age = animalObject?["animal_age"]
                 let animal_breed = animalObject?["animal_breed"]
                 let animal_color = animalObject?["animal_color"]
@@ -55,7 +58,7 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
                 let memo = animalObject?["memo"]
                 
                 
-                let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color: animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?, animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?, current_location: current_location as! String?, image: image as! String?, link: link as! String?, memo: memo as! String?)
+                let animal = LovesModel(id: ID, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color: animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?, animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?, current_location: current_location as! String?, image: image as! String?, link: link as! String?, memo: memo as! String?)
                 
                 // Adds event to list
                 self.myLovesList.append(animal)
@@ -64,6 +67,10 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
             self.updateBadgeNumber()
             
         })
+    }
+    
+    func updateUI() {
+        currentUserLabel.text = userEmail
     }
 
     // MARK: - Table view data source

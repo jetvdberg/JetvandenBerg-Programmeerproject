@@ -18,7 +18,6 @@
 		60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */; };
 		60F4D3C12007A58F00D31BCF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C02007A58F00D31BCF /* LogInViewController.swift */; };
 		60F4D3C32007A7D700D31BCF /* DetailsLoveMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */; };
-		60F4D3C52007A91900D31BCF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C42007A91900D31BCF /* ChatViewController.swift */; };
 		60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */; };
 		60F4D3CC2007BE6400D31BCF /* ShelterAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */; };
 		60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3CD2007C3D800D31BCF /* AnimalController.swift */; };
@@ -43,7 +42,6 @@
 		60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserTableViewController.swift; sourceTree = "<group>"; };
 		60F4D3C02007A58F00D31BCF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		60F4D3C22007A7D700D31BCF /* DetailsLoveMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLoveMeViewController.swift; sourceTree = "<group>"; };
-		60F4D3C42007A91900D31BCF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTableViewController.swift; sourceTree = "<group>"; };
 		60F4D3CB2007BE6400D31BCF /* ShelterAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterAnimal.swift; sourceTree = "<group>"; };
 		60F4D3CD2007C3D800D31BCF /* AnimalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalController.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				60F4D3D02008552B00D31BCF /* ContactShelterViewController.swift */,
 				60F4D3C62007AAEA00D31BCF /* SocialTableViewController.swift */,
 				60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */,
-				60F4D3C42007A91900D31BCF /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				60F4D3DA2010236100D31BCF /* subClass.swift in Sources */,
 				60F4D3D6200F6AD300D31BCF /* User.swift in Sources */,
 				60F4D3C32007A7D700D31BCF /* DetailsLoveMeViewController.swift in Sources */,
-				60F4D3C52007A91900D31BCF /* ChatViewController.swift in Sources */,
 				60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */,
 				60F4D3DF2011045B00D31BCF /* AnimalCollectionViewCell.swift in Sources */,
 			);

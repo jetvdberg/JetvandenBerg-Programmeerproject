@@ -77,7 +77,7 @@ class LogInViewController: UIViewController {
             let emailField = alert.textFields![0]
             let passwordField = alert.textFields![1]
                                         
-            if emailField.text == "" {
+            if emailField.text == "" || passwordField.text == "" {
                 let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
                 
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)

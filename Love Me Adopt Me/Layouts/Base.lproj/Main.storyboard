@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Loves-->
+        <!--My Loves-->
         <scene sceneID="OXc-sR-8QX">
             <objects>
                 <tableViewController id="TiN-jS-Tjd" customClass="MyLovesListTableViewController" customModule="Love_Me_Adopt_Me" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,9 +24,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rtq-0z-Cwf">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="22"/>
+                            <color key="textColor" red="0.58633290360000001" green="0.83733403500000003" blue="0.65428186150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyLoveListCell" textLabel="jeE-AM-OsL" detailTextLabel="uxj-7u-AR6" imageView="T9X-x9-2vd" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="XcX-Nq-cz7">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XcX-Nq-cz7" id="caG-rX-fxo">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
@@ -62,7 +69,10 @@
                             <outlet property="delegate" destination="TiN-jS-Tjd" id="91o-et-XYE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Loves" id="Z6s-7X-mm0"/>
+                    <navigationItem key="navigationItem" title="My Loves" id="Z6s-7X-mm0"/>
+                    <connections>
+                        <outlet property="currentUserLabel" destination="rtq-0z-Cwf" id="aRq-dg-qgT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcY-sI-p3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,28 +428,28 @@
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="UserCell" textLabel="kTf-jB-VrQ" imageView="xrR-EI-PS4" style="IBUITableViewCellStyleDefault" id="qpJ-pk-Z3b">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserCell" textLabel="kTf-jB-VrQ" imageView="xrR-EI-PS4" style="IBUITableViewCellStyleDefault" id="qpJ-pk-Z3b">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qpJ-pk-Z3b" id="DgX-o8-zRY">
-                                    <rect key="frame" x="0.0" y="0.0" width="307" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kTf-jB-VrQ">
-                                            <rect key="frame" x="93" y="0.0" width="214" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="lab_puppy_hero" id="xrR-EI-PS4">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xrR-EI-PS4">
                                             <rect key="frame" x="16" y="0.0" width="62" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="fcI-Pa-Lda" kind="show" id="Fpq-JI-Mvi"/>
+                                    <segue destination="fcI-Pa-Lda" kind="show" identifier="UserSegue" id="hJn-Ks-Apf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -468,43 +478,47 @@
             </objects>
             <point key="canvasLocation" x="438" y="1121"/>
         </scene>
-        <!--User Details-->
+        <!--Loves of-->
         <scene sceneID="WzR-RP-30T">
             <objects>
-                <tableViewController title="User Details" id="fcI-Pa-Lda" customClass="DetailsUsersTableViewController" customModule="Love_Me_Adopt_Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="epa-0W-bxB">
+                <tableViewController title="Loves of" id="fcI-Pa-Lda" customClass="DetailsUsersTableViewController" customModule="Love_Me_Adopt_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="epa-0W-bxB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Vl-7T-0hF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HVb-xS-ImF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="22"/>
+                            <color key="textColor" red="0.58633290360000001" green="0.83733403500000003" blue="0.65428186150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Fa0-Ia-dEW" detailTextLabel="cCN-bm-d15" style="IBUITableViewCellStyleSubtitle" id="AGq-hc-zpg">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserListCell" textLabel="Fa0-Ia-dEW" detailTextLabel="cCN-bm-d15" imageView="JLY-ft-ShW" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="AGq-hc-zpg">
+                                <rect key="frame" x="0.0" y="93" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AGq-hc-zpg" id="J3e-LB-cGN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fa0-Ia-dEW">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="144" y="20" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCN-bm-d15">
-                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="144" y="43.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="lab_puppy_hero" id="JLY-ft-ShW">
+                                            <rect key="frame" x="16" y="0.0" width="113" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -515,19 +529,21 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="userEmailLabel" destination="0Vl-7T-0hF" id="4ng-yc-wDX"/>
-                        <outlet property="userNameLabel" destination="0Vl-7T-0hF" id="3X7-Ni-8bH"/>
+                        <outlet property="userEmailLabel" destination="HVb-xS-ImF" id="pie-6p-0lF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YG-QV-u43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="1121"/>
+            <point key="canvasLocation" x="1221.5999999999999" y="1120.3898050974515"/>
         </scene>
         <!--Social-->
         <scene sceneID="DEW-kL-z14">
             <objects>
                 <navigationController id="hbj-ZB-mzS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Social" id="AiN-ky-AiI" userLabel="Social"/>
+                    <tabBarItem key="tabBarItem" title="Social" image="icons8-people-filled-100 (1)" id="AiN-ky-AiI" userLabel="Social">
+                        <color key="badgeColor" red="0.58633290360000001" green="0.83733403500000003" blue="0.65428186150000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="328-C4-tOd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -550,7 +566,7 @@
         <scene sceneID="bFd-x7-s4b">
             <objects>
                 <navigationController id="VmG-ur-uwF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Love Me!" id="NUL-zr-ZqQ" userLabel="Love Me!"/>
+                    <tabBarItem key="tabBarItem" title="Love Me!" image="965167-200 (1)" id="NUL-zr-ZqQ" userLabel="Love Me!"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I5M-PY-REr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -576,7 +592,7 @@
         <scene sceneID="7pG-hR-Hkb">
             <objects>
                 <navigationController id="LoC-qO-3xj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Loves" id="DTU-b4-5S2"/>
+                    <tabBarItem key="tabBarItem" title="Loves" image="icons8-heart-outline-filled-100" id="DTU-b4-5S2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wYd-ec-Ej6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -750,6 +766,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="965167-200 (1)" width="33" height="33"/>
+        <image name="icons8-heart-outline-filled-100" width="33" height="33"/>
+        <image name="icons8-people-filled-100 (1)" width="33" height="33"/>
         <image name="lab_puppy_hero" width="770" height="540"/>
     </resources>
 </document>

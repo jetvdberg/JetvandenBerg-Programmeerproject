@@ -10,14 +10,16 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class SocialTableViewController: UITableViewController, UISearchBarDelegate {
     
     // Properties
-    
     var currentUsers = [User]()
     var filteredUsers = [User]()
+    var searchedUsers = [User]()
     let usersRef = Database.database().reference()
+    let userID = (Auth.auth().currentUser?.uid)!
 //    var users = [User]()
     var isSearching = false
     
@@ -53,15 +55,12 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
             self.currentUsers = []
             for user in snapshot.children.allObjects as! [DataSnapshot] {
                 let userObject = user.value as? [String: AnyObject]
-                let email = userObject?["email"]
-                let uid = userObject?["uid"]
-                let user = User(uid: uid as! String, email: email as! String)
-                
-                // Adds event to list
-                self.currentUsers.append(user)
-                let row = self.currentUsers.count - 1
-                let indexPath = IndexPath(row: row, section: 0)
-                self.tableView.insertRows(at: [indexPath], with: .top)
+                let email = userObject?["email"] as! String
+                let uid = userObject?["uid"] as! String
+                let user = User(uid: uid, email: email)
+                if self.userID != uid {
+                    self.currentUsers.append(user)
+                }
                 self.tableView.reloadData()
             }
         })
@@ -90,9 +89,16 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
             onlineUserEmail = currentUsers[indexPath.row].email
         }
         
-         cell.textLabel?.text = onlineUserEmail
+        cell.textLabel?.text = onlineUserEmail
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Database.database().reference().child("searched-users").child(userID).setValue([
+            "email": currentUsers[indexPath.row].email,
+            "uid": currentUsers[indexPath.row].uid
+            ])
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -111,12 +117,13 @@ class SocialTableViewController: UITableViewController, UISearchBarDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "UserSegue" {
-//            let detailsUserTableViewController = segue.destination as! DetailsUsersTableViewController
-//            let index = tableView.indexPathForSelectedRow!.row
-//            detailsUserTableViewController.user = currentUsers[index]
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserSegue" {
+            let detailsUsersTableViewController = segue.destination as! DetailsUsersTableViewController
+            let index = tableView.indexPathForSelectedRow!.row
+            detailsUsersTableViewController.user = currentUsers[index]
+            print(currentUsers[index])
+        }
+    }
     
 }
