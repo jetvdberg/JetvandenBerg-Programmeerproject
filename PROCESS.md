@@ -58,3 +58,10 @@
 * Gebruiker kan eigen e-mail als 'accountnaam' zien.
 * Tab bar icons gemaakt.
 * Bezig met 'laatst gezocht' maken, dit komt nu wel in Firebase te staan, moet er alleen nog uitgelezen worden.
+
+## Dag 13
+* SocialViewController recent bekeken werkt en kan nu 3 meest recent bekeken gebruikers laten zien.
+* Activity Indicator toegevoegd voordat afbeeldingen geladen zijn
+* Logo gemaakt
+* LoginView aangepast
+* Schermrotatie is uitgeschakeld
