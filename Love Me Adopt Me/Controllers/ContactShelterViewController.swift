@@ -15,11 +15,12 @@ import MessageUI
 
 class ContactShelterViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    var myLovesList: LovesModel!
+    var LovesList: LovesModel!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sendEmailButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +31,28 @@ class ContactShelterViewController: UIViewController, MFMailComposeViewControlle
     }
     
     func updateUI() {
-//        if shelterAnimal.animal_name != nil {
-//            nameLabel.text = shelterAnimal.animal_name
-//        } else {
-//            nameLabel.text = "nameless :("
-//        }
+        activityIndicator.startAnimating()
+        if LovesList.animal_name != nil {
+            nameLabel.text = LovesList.animal_name
+        } else {
+            nameLabel.text = "nameless :("
+        }
         
         sendEmailButton.layer.cornerRadius = 25.0
         
-//        let animalImage = shelterAnimal.image
-//        if let animalIMG = animalImage {
-//
-//            AnimalController.shared.fetchImage(url: animalIMG)
-//            { (image) in
-//                guard let image = image else { return }
-//                DispatchQueue.main.async {
-//                    self.imageView.image = image
-//                }
-//            }
+        let animalImage = URL(string: LovesList.image!)
+        if let animalIMG = animalImage {
+
+            AnimalController.shared.fetchImage(url: animalIMG)
+            { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                    self.activityIndicator.stopAnimating()
+                }
+            }
             imageView.layer.cornerRadius = 25.0
-//        }
+        }
     }
 
     override func didReceiveMemoryWarning() {

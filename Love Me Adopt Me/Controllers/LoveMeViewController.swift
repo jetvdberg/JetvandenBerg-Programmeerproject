@@ -26,6 +26,7 @@ class LoveMeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
         AnimalController.shared.fetchAnimals { (shelterAnimals) in
             if let shelterAnimals = shelterAnimals {
                 self.updateUI(with: shelterAnimals)

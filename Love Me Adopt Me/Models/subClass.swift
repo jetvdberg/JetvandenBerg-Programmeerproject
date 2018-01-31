@@ -27,12 +27,15 @@ extension subClass : UICollectionViewDataSource, UICollectionViewDelegate {
         let shelterAnimal = shelterAnimals[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "animalCell", for: indexPath) as! AnimalCollectionViewCell
         
+        cell.animalActivityIndicator.startAnimating()
+        
         if shelterAnimal.animal_name != nil {
             cell.animalTypeLabel.text = shelterAnimal.animal_name
         } else {
             cell.animalTypeLabel?.text = "nameless :("
         }
-        cell.animalImageView?.image = #imageLiteral(resourceName: "lab_puppy_hero") // TODO: ander plaatje doen later
+//        cell.animalImageView?.image = #imageLiteral(resourceName: "LoveMeLogo")
+        
         cell.shelterAnimal = shelterAnimal
         
         let animalImage: URL? = shelterAnimal.image
@@ -48,8 +51,9 @@ extension subClass : UICollectionViewDataSource, UICollectionViewDelegate {
                     
                     if shelterAnimal.image != nil {
                         cell.animalImageView?.image = image
+                        cell.animalActivityIndicator.stopAnimating()
                     } else {
-                        cell.animalImageView?.image = #imageLiteral(resourceName: "lab_puppy_hero")
+                        cell.animalImageView?.image = #imageLiteral(resourceName: "LoveMeLogo")
                     }
                 }
             }

@@ -15,6 +15,7 @@ class AnimalCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var animalImageView: UIImageView!
     @IBOutlet weak var animalTypeLabel: UILabel!
+    @IBOutlet weak var animalActivityIndicator: UIActivityIndicatorView!
     
     override func layoutSubviews() {
         super.layoutSubviews()

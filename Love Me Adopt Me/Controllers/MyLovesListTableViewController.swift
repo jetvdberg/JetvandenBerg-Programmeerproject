@@ -153,8 +153,8 @@ class MyLovesListTableViewController: UITableViewController, AddToMyLovesDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LovesSegue" {
             let contactShelterViewController = segue.destination as! ContactShelterViewController
-//            let index = tableView.indexPathForSelectedRow!.row
-//            contactShelterViewController.myLovesList = myLovesList[index]
+            let index = tableView.indexPathForSelectedRow!.row
+            contactShelterViewController.LovesList = myLovesList[index]
         }
     }
 

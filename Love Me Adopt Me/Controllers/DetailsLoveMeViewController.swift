@@ -25,6 +25,8 @@ class DetailsLoveMeViewController: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var addToLovesButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     
     override func viewDidLoad() {
@@ -36,6 +38,7 @@ class DetailsLoveMeViewController: UIViewController {
     }
     
     func updateUI() {
+        activityIndicator.startAnimating()
         if shelterAnimal.animal_name != nil {
             nameLabel.text = shelterAnimal.animal_name
         } else {
@@ -67,6 +70,7 @@ class DetailsLoveMeViewController: UIViewController {
                 guard let image = image else { return }
                 DispatchQueue.main.async {
                     self.imageView.image = image
+                    self.activityIndicator.stopAnimating()
                 }
             }
             imageView.layer.cornerRadius = 25.0
