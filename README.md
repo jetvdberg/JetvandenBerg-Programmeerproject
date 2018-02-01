@@ -7,6 +7,7 @@ Deze app toont dieren uit een dierenasiel, die 'geliket' kunnen worden door de g
 
 ![](doc/Design%20Document.jpg)
 ![](doc/App-Proposal.jpg)
+![](doc/IMG_2391.PNG)
 
 ## Problem statement
 
