@@ -5,6 +5,8 @@
 //  Created by Jet van den Berg on 11-01-18.
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
+//  This class holds the list of another user, which is stored in Firebase. The user can view this list and, when navigating back, the account of this recently viewed list, will appear at the top of recently viewed users.
+//
 
 import UIKit
 import Firebase
@@ -13,26 +15,26 @@ import FirebaseDatabase
 
 class DetailsUsersTableViewController: UITableViewController {
     
+    // Properties
     var shelterAnimals = [ShelterAnimal]()
     var myLovesList = [LovesModel]()
     var user: User!
-    
     var dataRef = Database.database().reference()
     
+    // Outlet
     @IBOutlet weak var userEmailLabel: UILabel!
     
+    // Loads view, updates label viewed user
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        userEmailLabel.text = user.email
         
         // Checks for existing data in Firebase
         dataRef.child("lists-of-users").child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
-            
             if !snapshot.exists() { return }
-            
             self.myLovesList = []
-            //            let animalName = snapshot.childSnapshot(forPath: "animalName").value
             
+            // Iterates over data existing in snapshot Firebase, checks for value
             for animals in snapshot.children.allObjects as! [DataSnapshot] {
                 let animalObject = animals.value as? [String: AnyObject]
                 let ID = animalObject?["id"]
@@ -49,48 +51,37 @@ class DetailsUsersTableViewController: UITableViewController {
                 let link = animalObject?["link"]
                 let memo = animalObject?["memo"]
                 
-                
+                // Creates instance from LovesModel, creating new animal
                 let animal = LovesModel(id: ID as! String?, animal_age: animal_age as! String?, animal_breed: animal_breed as! String?, animal_color: animal_color as! String?, animal_gender: animal_gender as! String?, animal_id: animal_id as! String?, animal_name: animal_name as! String?, animal_type: animal_type as! String?, city: city as! String?, current_location: current_location as! String?, image: image as! String?, link: link as! String?, memo: memo as! String?)
                 
-                // Adds event to list
+                // Adds animal to list
                 self.myLovesList.append(animal)
                 self.tableView.reloadData()
             }
         })
     }
-    
-    func updateUI() {
-        userEmailLabel.text = user.email
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
+    // Returns number of rows in TableView
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myLovesList.count
     }
 
+    // Returns cell with configured data in TableViewRow
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserListCell", for: indexPath)
         configure(cell: cell, forItemAt: indexPath)
         return cell
     }
 
-    // Configures cells with animal details
+    // Configures cell and fills up each cell and label with corresponding data
     func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
         let shelterAnimal = myLovesList[indexPath.row]
-        if shelterAnimal.animal_name != nil {
-            cell.textLabel?.text = shelterAnimal.animal_name
-        } else {
-            cell.textLabel?.text = "nameless :("
-            
-        }
-        cell.detailTextLabel?.text = shelterAnimal.animal_breed
+        cell.textLabel?.text = (shelterAnimal.animal_name != nil) ? shelterAnimal.animal_name : "nameless :("
+        cell.detailTextLabel?.text = (shelterAnimal.animal_breed != nil) ? shelterAnimal.animal_breed : "Unknown"
         
+        // Checks if image exists, fills with image
         let imageURL = URL(string: shelterAnimal.image!)
         AnimalController.shared.fetchImage(url: imageURL!)
         { (image) in
@@ -100,30 +91,5 @@ class DetailsUsersTableViewController: UITableViewController {
             }
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

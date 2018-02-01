@@ -5,6 +5,8 @@
 //  Created by Jet van den Berg on 17-01-18.
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
+//  This struct holds the properties of each user, read/written from Firebase. This data is used throughout the app.
+//
 
 import Foundation
 
@@ -15,7 +17,7 @@ struct User {
     let uid: String
     let email: String
     
-    // Initialize properties for Firebase
+    // Initialize properties for FirebaseAuth
     init(authData: User) {
         uid = authData.uid
         email = authData.email

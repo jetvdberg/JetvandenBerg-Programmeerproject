@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // Configures app for launch, for use of Firebase and converting imageURLS
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
         let temporaryDirectory = NSTemporaryDirectory()
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    // Lock the orientation to Portrait mode
+    // Locks orientation to portrait mode
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
     }

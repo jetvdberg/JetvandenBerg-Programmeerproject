@@ -5,14 +5,16 @@
 //  Created by Jet van den Berg on 18-01-18.
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
-
+//  This class creates a CollectionView in a TableView, which displays all the shelter animals from the API. For each animal type is a separate array and section created. Each cell holds a shelter animal, based on the animal type (and section). The user can tap an animal, and will be navigated to another view.
+//
 
 import UIKit
 import Foundation
 
 class LoveMeViewController: UIViewController {
+    
+    // Properties
     var animalTypes = ["Dogs", "Cats", "Birds"]
-
     let animalController = AnimalController()
     var shelterAnimals = [ShelterAnimal]()
     var shelterAnimal: ShelterAnimal!
@@ -22,11 +24,15 @@ class LoveMeViewController: UIViewController {
     var shelterBirds = [ShelterAnimal]()
     var remaining = [ShelterAnimal]()
     
+    // Outlet
     @IBOutlet weak var tableView: UITableView!
     
+    // Loads view
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
+        
+        // Checks if shelterAnimals exist, performs functions
         AnimalController.shared.fetchAnimals { (shelterAnimals) in
             if let shelterAnimals = shelterAnimals {
                 self.updateUI(with: shelterAnimals)
@@ -36,13 +42,14 @@ class LoveMeViewController: UIViewController {
     }
     
     // Updates scene
-    func updateUI(with shelterDogs: [ShelterAnimal]) {
+    func updateUI(with shelterAnimals: [ShelterAnimal]) {
         DispatchQueue.main.async {
-            self.shelterAnimals = shelterDogs
+            self.shelterAnimals = shelterAnimals
             self.tableView.reloadData()
         }
     }
     
+    // Filters shelterAnimals, adds different animal types to corresponding arrays
     func filterAnimals(with shelterAnimals: [ShelterAnimal]) {
         shelterAnimals.forEach { ShelterAnimal in
             
@@ -58,58 +65,59 @@ class LoveMeViewController: UIViewController {
                 default:
                     remaining.append(ShelterAnimal)
                 }
-            } else {
-                return
-            }
+            } else { return }
         }
     }
     
 }
 
+// Extension of LoveMeViewController: manages the TableView settings and data
 extension LoveMeViewController : UITableViewDelegate, UITableViewDataSource {
     
+    // Sets titles for headers in TableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return animalTypes[section]
     }
     
+    // Returns number of sections in TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return animalTypes.count
     }
     
+    // Returns number of rows in TableViewSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    // Defines cell, fills in animal data for corresponding cell in TableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! subClass
+        
+        // Checks for each section which array is needed
         switch indexPath {
         case [0,0]:
             cell.shelterAnimals = self.shelterDogs
             cell.collectionView.reloadData()
-            print(shelterDogs.count)
         case [1,0]:
             cell.shelterAnimals = self.shelterCats
             cell.collectionView.reloadData()
-            print(shelterCats.count)
         case [2,0]:
             cell.shelterAnimals = self.shelterBirds
             cell.collectionView.reloadData()
-            print(shelterBirds.count)
         default:
             cell.collectionView.reloadData()
-            print(remaining.count)
         }
-        
         return cell
     }
 
+    // Returns height of TableViewRow
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 178.0
+        return 200.0
     }
 
     // MARK: - Navigation
     
-    // Segue for EventDetailSegue with details of certain event
+    // Performs segue to DetailsLoveMeViewController, sends corresponding data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LoveMeSegue" {
             let detailsLoveMeViewController = segue.destination as! DetailsLoveMeViewController

@@ -13,7 +13,6 @@
 		60F4D3A22007836700D31BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A02007836700D31BCF /* Main.storyboard */; };
 		60F4D3A42007836700D31BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A32007836700D31BCF /* Assets.xcassets */; };
 		60F4D3A72007836700D31BCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F4D3A52007836700D31BCF /* LaunchScreen.storyboard */; };
-		60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */; };
 		60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */; };
 		60F4D3B92007A43200D31BCF /* DetailsUserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */; };
 		60F4D3C12007A58F00D31BCF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F4D3C02007A58F00D31BCF /* LogInViewController.swift */; };
@@ -37,7 +36,6 @@
 		60F4D3A32007836700D31BCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60F4D3A62007836700D31BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60F4D3A82007836700D31BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveMeTableViewController.swift; sourceTree = "<group>"; };
 		60F4D3B02007A2C100D31BCF /* MyLovesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLovesListTableViewController.swift; sourceTree = "<group>"; };
 		60F4D3B82007A43200D31BCF /* DetailsUserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserTableViewController.swift; sourceTree = "<group>"; };
 		60F4D3C02007A58F00D31BCF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				60F4D39C2007836700D31BCF /* AppDelegate.swift */,
-				60F4D3AE2007A29B00D31BCF /* LoveMeTableViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -308,7 +305,6 @@
 				60F4D3C12007A58F00D31BCF /* LogInViewController.swift in Sources */,
 				60F4D3CE2007C3D800D31BCF /* AnimalController.swift in Sources */,
 				60F4D3B12007A2C100D31BCF /* MyLovesListTableViewController.swift in Sources */,
-				60F4D3AF2007A29B00D31BCF /* LoveMeTableViewController.swift in Sources */,
 				60F4D3D820101ED000D31BCF /* LoveMeViewController.swift in Sources */,
 				60B61FEE2018AD39003A0922 /* LovesModel.swift in Sources */,
 				60F4D3C72007AAEA00D31BCF /* SocialTableViewController.swift in Sources */,

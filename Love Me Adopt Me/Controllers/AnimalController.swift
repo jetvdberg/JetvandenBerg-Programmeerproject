@@ -5,6 +5,8 @@
 //  Created by Jet van den Berg on 11-01-18.
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
+//  This class parses data from an API about adoptable shelter animals (in the state Washington). When parsed, the data is stored in an array. This array is used throughout the app. Link: https://data.kingcounty.gov/resource/murn-chih.json
+//
 
 import UIKit
 import Foundation
@@ -12,15 +14,17 @@ import Foundation
 class AnimalController {
     static let shared = AnimalController()
     
+    // API for shelter animals
     let animalURL = URL(string: "https://data.kingcounty.gov/resource/murn-chih.json")!
     
-    // Get data from API via URL, with filtering "results" due to JSONDecoder
+    // Get data from API via URL
     func fetchAnimals(completion: @escaping ([ShelterAnimal]?) -> Void) {
         let task = URLSession.shared.dataTask(with: animalURL) { (data, response, error) in
             
             var json: [AnyObject]?
             var animal = [ShelterAnimal]()
             
+            // Parse JSON and read data
             do {
                 json = try? JSONSerialization.jsonObject(with: data!) as! [AnyObject]
                 for object in json! {
@@ -43,10 +47,10 @@ class AnimalController {
                         temp.link = URL(string: linkURL)
                     }
                     
+                    // Add object to animal array
                     animal.append(temp)
                 }
                 completion(animal)
-//                print(animal)
             } catch {
                 print(error)
             }
@@ -54,6 +58,7 @@ class AnimalController {
         task.resume()
     }
     
+    // Get images from API via URL
     func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data,

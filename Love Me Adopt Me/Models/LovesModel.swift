@@ -5,11 +5,13 @@
 //  Created by Jet van den Berg on 24-01-18.
 //  Copyright © 2018 Jet van den Berg. All rights reserved.
 //
+//  This class holds the properties of each shelter animal, read/written from Firebase. This data is used throughout the app.
+//
 
 import UIKit
 import Foundation
 
-// Class for reading and writing data to Firebase
+// Class each shelter animal, for reading and writing data to Firebase
 class LovesModel {
     
     // Properties
@@ -27,8 +29,6 @@ class LovesModel {
     var link: String?
     var memo: String?
     
-//    var addedByUser: String?
-    
     // Initialize properties
     init(id: String?, animal_age: String?, animal_breed: String?, animal_color: String?, animal_gender: String?, animal_id: String?, animal_name: String?, animal_type: String?, city: String?, current_location: String?, image: String?, link: String?, memo: String?) {
         self.id = id
@@ -44,8 +44,6 @@ class LovesModel {
         self.image = image
         self.link = link
         self.memo = memo
-        
-//        self.addedByUser = addedByUser
     }
 }
 
