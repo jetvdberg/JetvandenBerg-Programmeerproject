@@ -8,22 +8,23 @@ Deze app toont dieren uit een dierenasiel, die geadopteerd kunnen worden. Detail
 <img src="https://github.com/jetvdberg/Programmeerproject/blob/master/doc/IMG_2391.PNG" width="500" height="790">
 
 # Design review
-Ik heb veelal dezelfde classes en functies gebruikt om de dieren te weergeven in de app.
+Ik heb veelal dezelfde classes en functies gebruikt om de dieren te weergeven in de app. Elke scherm van de tabBarController heeft een eigen detailsscherm, waardoor de structuur niet al te moeilijk te begrijpen is.
 #### Classes:
 ###### LoginViewController
 - login button - login()
 - sign up button - signup()
-###### OverviewTableViewController
+###### LoveMeTableViewController >> DetailsLoveMeViewController
 - [Animals]
-###### DetailsViewController
+###### DetailsLoveMeViewController
 - [ObjectDetails]
 - addObject()
-###### FavoritesTableViewController
-- addObject()
-- deleteObject()
-###### AddObjectViewController
-- addObject()
-###### UsersOverviewTableViewController
+###### MyLovesTableViewController >> ContactShelterViewController
+- edit()
+###### ContactShelterViewController
+- callShelter()
+- mailShelter()
+- openWebPage()
+###### UsersTableViewController >> UserDetailsTableViewController
 - [Users]
 ###### UserDetailsTableViewController
 - [LovesList]
