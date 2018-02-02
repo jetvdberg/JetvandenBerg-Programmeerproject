@@ -6,6 +6,8 @@
 Deze app toont dieren uit een dierenasiel, die 'geliket' kunnen worden door de gebruiker middels een druk op de knop 'Love Me!'. Deze 'gelikete' dieren komen in een 'Loves'-lijst te staan van deze gebruiker. 
 Door op een dier te klikken in het 'Love Me-scherm', worden de details weergegeven. Op basis hiervan kan een gebruiker bepalen of hij dit dier wel of niet in zijn lijst zet. Deze lijst kan ook gedeeld worden met vrienden, die te zoeken zijn op hun e-mailadres. Ook de recent bekeken gebruikers zijn in dit scherm te zien. Mocht een gebruiker echt besluiten om een dier te adopteren, kan hij navigeren naar zijn 'Loves'-lijst, waar al zijn favoriete dieren staan opgeslagen, zijn uitgekozen dier selecteren, dat hem zal brengen tot het contactscherm. Vanuit hier kan de gebruiker bellen en mailen met het dierenasiel, of de webpagina van het betreffende dier zien. Het uiteindelijke doel is natuurlijk dat de gebruiker er een nieuwe vriend bij krijgt!
 
+Een demo is te zien via deze link: https://youtu.be/75iPQgtLZVE
+
 <img src="https://github.com/jetvdberg/Programmeerproject/blob/master/doc/IMG_2395.PNG" width="500" height="790">
 <img src="https://github.com/jetvdberg/Programmeerproject/blob/master/doc/IMG_2391.PNG" width="500" height="790">
 <img src="https://github.com/jetvdberg/Programmeerproject/blob/master/doc/IMG_2392.PNG" width="500" height="790">
